@@ -24,10 +24,15 @@
     # nix-shell cached replacement
     lorri.enable = true;
 
+    # SSD block reclamation service
+    fstrim.enable = true;
+
     # usbguard - BadUSB protection
     usbguard = {
       enable = true;
-      package = pkgs.usbguard-nox; # Non-GUI package
+
+      # Non-GUI package
+      package = pkgs.usbguard-nox;
     };
 
     # enable powersaving manager
@@ -56,11 +61,12 @@
     enable = true;
     enableOnBoot = false;
   };
-  # VirtualBox
-  virtualisation.virtualbox = {
-    host = {
-      enable = true;
-      # enableExtensionPack = true;
-    };
-  };
+
+  # # VirtualBox
+  # virtualisation.virtualbox = {
+  #   host = {
+  #     enable = true;
+  #     # enableExtensionPack = true;
+  #   };
+  # };
 }
