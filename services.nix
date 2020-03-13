@@ -21,6 +21,9 @@
   location.provider = "geoclue2";
 
   services = {
+    # nix-shell cached replacement
+    lorri.enable = true;
+
     # usbguard - BadUSB protection
     usbguard = {
       enable = true;
