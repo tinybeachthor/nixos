@@ -1,7 +1,7 @@
 { neovim, pkgs, stdenv }:
 
 let
-  vimrc = builtins.readFile (./neovim.vim);
+  vimrc = builtins.readFile ./neovim.vim;
 
   python3Packages = packages: with packages; [
     pylint
@@ -9,7 +9,8 @@ let
     black
   ];
 in
-  neovim.override {
+
+neovim.override {
 
   vimAlias = true;
   viAlias = true;
@@ -26,19 +27,16 @@ in
       start = [
        # core
        auto-pairs
-       vim-obsession
        vim-commentary
-       vim-repeat
        vim-unimpaired
        vim-surround
+       vim-repeat
        ferret
        vim-trailing-whitespace
+       vim-signature
 
        # lsp
        coc-nvim
-       coc-denite
-       coc-lists
-       coc-pairs
 
        # files
        fzf-vim
@@ -48,6 +46,7 @@ in
        # git
        vim-fugitive
        vim-gitgutter
+       coc-git
 
        # look
        vim-airline
@@ -57,26 +56,38 @@ in
        vim-nix
        vim-javascript
        vim-jsx-pretty
+       typescript-vim
        haskell-vim
        vim-go
        Jenkinsfile-vim-syntax
      ];
      opt = [
-       # coc lsp
+       vim-colorschemes
 
+       coc-pairs
+       coc-lists
        coc-highlight
-       coc-git
+       coc-snippets
+       coc-smartf
 
+       # general
        coc-yaml
-       coc-css
        coc-json
        coc-vimtex
 
+       # html-like
+       coc-css
+       coc-html
+
+       # js
        coc-tsserver
        coc-eslint
+
+       # lang
        coc-python
        coc-go
        coc-java
+       coc-metals
      ];
    };
  };

@@ -3,6 +3,13 @@ set shell=/bin/sh
 let mapleader = "\<space>"
 let maplocalleader = "\<space>"
 
+" escapes
+imap jw <Esc>
+imap wj <Esc>
+
+" better marks navigation
+nnoremap <silent> <S-m> `
+
 " Terminal ---------------------- {{{
 
 " No linenumbers in terminal
@@ -31,6 +38,9 @@ let g:netrw_list_hide = netrw_gitignore#Hide() . '.*\.swp$,.*\.un\~$,.git/$'
 
 " }}}
 
+nnoremap <silent> <leader>s :<C-u>Back<space>
+nnoremap <silent> <leader><S-s> :<C-u>Ack<space>
+
 " Vim basic settings ---------------------- {{{
 
 set encoding=utf-8
@@ -40,7 +50,7 @@ set nobackup undofile
 au CursorHold,CursorHoldI * checktime
 " Set numbers, scrolloffset
 set ruler number relativenumber
-set scrolloff=3
+set scrolloff=999
 set autoindent smartindent
 set tabstop=2 shiftwidth=2
 set softtabstop=-1 shiftround expandtab
@@ -62,32 +72,41 @@ syntax on
 filetype on
 filetype plugin indent on
 
+" fuzzy
+set path+=**
+set wildmenu
+
 " }}}
 
 " Look & Feel ---------------------- {{{
 
+" terminal color normalization fixes
 if &term =~ '256color'
   " disable Background Color Erase (BCE) so that color schemes
   " render properly when inside 256-color tmux and GNU screen.
   " see also http://snk.tuxfamily.org/log/vim-256color-bce.html
   set t_ut=
 endif
-
 let &t_8f = "\<Esc>[38;2;%lu;%lu;%lum"
 let &t_8b = "\<Esc>[48;2;%lu;%lu;%lum"
 set termguicolors
 
+" Sign bar (git + marks)
+let g:gitgutter_override_sign_column_highlight = 0
+let g:SignatureMarkerTextHLDynamic = 1
+
+" colorscheme
 set background=dark
 let g:neosolarized_contrast = "high"
 let g:neosolarized_visibility = "low"
+let g:neosolarized_underline = 0
 colorscheme NeoSolarized
 
+" Airline
 set noshowmode " Hide mode indicator - included in airline
-
 let g:airline#extensions#tabline#enabled = 1
 let g:airline#extensions#tabline#buffer_idx_mode = 1
 let g:airline#parts#ffenc#skip_expected_string = 'utf-8[unix]'
-let g:airline_section_c = '%{ObsessionStatus()} %f'
 let g:airline_section_z = '%3p%% %3l/%L:%3v'
 
 " }}}
@@ -95,9 +114,9 @@ let g:airline_section_z = '%3p%% %3l/%L:%3v'
 " Key mappings ---------------------- {{{
 
 " write all
-nnoremap <leader>w :<C-U>wa<CR>
+nnoremap <leader>w :<C-U>w<CR>
 " write single
-nnoremap <C-S> :<C-U>w<CR>
+nnoremap <C-S> :<C-U>wa<CR>
 
 " close current
 fun! CloseCurrent()
@@ -195,7 +214,7 @@ command! WipeReg for i in range(34,122) | silent! call setreg(nr2char(i), []) | 
 augroup filetype_vim
     autocmd!
     autocmd FileType vim setlocal foldmethod=marker
-    autocmd FileType vim setlocal tabstop=4 shiftwidth=4
+    autocmd FileType vim setlocal tabstop=4 shiftwidth=4 cc=0
 augroup END
 " gitcommit
 augroup filetype_gitcommit
@@ -206,7 +225,6 @@ augroup END
 augroup filetype_markdown
     autocmd!
     autocmd FileType markdown setlocal tw=72 spell wrap
-    autocmd FileType markdown packadd markdown-preview.nvim
 augroup END
 " SQL
 let g:omni_sql_no_default_maps = 1
@@ -223,6 +241,11 @@ augroup filetype_clojure
     autocmd Syntax clojure RainbowParenthesesLoadRound
     autocmd Syntax clojure RainbowParenthesesLoadSquare
     autocmd Syntax clojure RainbowParenthesesLoadBraces
+augroup END
+" Java
+augroup filetype_java
+    autocmd!
+    autocmd FileType java setlocal tabstop=4 shiftwidth=4 cc=120
 augroup END
 
 " }}}
@@ -246,7 +269,7 @@ let g:airline_section_warning = '%{airline#util#wrap(airline#extensions#coc#get_
 
 set hidden
 set cmdheight=2
-set updatetime=300
+set updatetime=250
 set signcolumn=yes
 
 " use <tab> for trigger completion and navigate next complete item
@@ -292,15 +315,14 @@ autocmd CursorHoldI * silent! call CocActionAsync('showSignatureHelp')
 autocmd CursorHold * silent call CocActionAsync('highlight')
 
 " Remap for format selected region
-vmap <leader>f <Plug>(coc-format-selected)
-nmap <leader>f <Plug>(coc-format-selected)
+vmap <leader>cf <Plug>(coc-format-selected)
+nmap <leader>cf <Plug>(coc-format-selected)
 
 " don't give |ins-completion-menu| messages.
 set shortmess+=c
 
 " Use K to show documentation in preview window
 nnoremap <silent> K :call <SID>show_documentation()<CR>
-
 function! s:show_documentation()
   if (index(['vim','help'], &filetype) >= 0)
     execute 'h '.expand('<cword>')
@@ -308,26 +330,16 @@ function! s:show_documentation()
     call CocAction('doHover')
   endif
 endfunction
+
 " Use `:Format` for format current buffer
 command! -nargs=0 Format :call CocAction('format')
 " Use `:Fold` for fold current buffer
 command! -nargs=? Fold :call CocAction('fold', <f-args>)
 
-nnoremap <silent> <leader>co  :<C-u>CocList symbols<cr>
-nnoremap <silent> <leader>cw  :<C-u>CocList workspace<cr>
-nnoremap <silent> <leader>cd  :<C-u>CocList diagnostic<cr>
-nnoremap <silent> <leader>cc  :<C-u>CocList command<cr>
-nnoremap <silent> <leader>cs  :<C-u>CocList service<cr>
-nnoremap <silent> <leader>cl  :<C-u>CocList link<cr>
-
 " enable symbol highlighting
 autocmd CursorHold * silent call CocActionAsync('highlight')
 " set symbol highlight color
 highlight CocHighlightText cterm=bold ctermfg=Yellow gui=bold guifg=#ff8229
-
-" Remap for format selected region
-xmap <leader>f  <Plug>(coc-format-selected)
-nmap <leader>f  <Plug>(coc-format-selected)
 
 " Create mappings for function text object, requires document symbols feature of languageserver.
 xmap if <Plug>(coc-funcobj-i)
@@ -336,49 +348,46 @@ omap if <Plug>(coc-funcobj-i)
 omap af <Plug>(coc-funcobj-a)
 
 " use `:OR` for organize import of current buffer
-command! -nargs=0 OR   :call     CocAction('runCommand', 'editor.action.organizeImport')
+command! -nargs=0 OR :call CocAction('runCommand', 'editor.action.organizeImport')
 
 " Add status line support, for integration with other plugin, checkout `:h coc-status`
 set statusline^=%{coc#status()}%{get(b:,'coc_current_function',\'\')}
 
+" Keymappings
+
+" Remap for format selected region
+xmap <leader>f <Plug>(coc-format-selected)
+nmap <leader>f <Plug>(coc-format-selected)
+
+nnoremap <silent> <leader>d  :<C-u>CocAction<CR>
+
+nnoremap <silent> <leader>ca  :<C-u>CocList actions<CR>
+nnoremap <silent> <leader>cv  :<C-u>CocList vimcommands<CR>
+nnoremap <silent> <leader>cc  :<C-u>CocList cmdhistory<CR>
+nnoremap <silent> <leader>cr  :<C-u>CocList mru<CR>
+
 " }}}
 
-" fuzzy finder
-nnoremap <leader>o :FZF<CR>
-nnoremap <leader>O :FZF!<CR>
+" FZF ---------------------- {{{
+
+nnoremap <leader><leader> :FZF<CR>
 
 autocmd StdinReadPre * let s:std_in=1
 autocmd VimEnter * if argc() == 0 && !exists("s:std_in") | call fzf#run({'sink': 'e'}) | endif
 
-command! -bang EditConfigs
-    \ call fzf#run(fzf#wrap('edit-config', {
-    \ 'source': [
-    \      '~/.config/nvim/init.vim',
-    \      '~/.config/nvim/coc.vim',
-    \      '~/.config/nvim/local.vim',
-    \      '~/.config/nvim/terminal.vim',
-    \      '~/.config/nvim/coc-settings.json'
-    \ ],
-    \ 'options': '--reverse --prompt "edit config "'
-    \ }, <bang>0))
-nnoremap <silent> <leader>ev :EditConfigs<CR>
-nnoremap <silent> <leader>Ev :EditConfigs!<CR>
-
 " An action can be a reference to a function that processes selected lines
-function! s:build_quickfix_list(lines)
-  call setqflist(map(copy(a:lines), '{ "filename": v:val }'))
-  copen
-  cc
+function! s:load_quickfix_list(lines)
+    call setqflist(map(copy(a:lines), '{ "filename": v:val }'))
+    copen
+    cc
 endfunction
 
 let g:fzf_action = {
-  \ 'ctrl-q': function('s:build_quickfix_list'),
+  \ 'ctrl-l': function('s:load_quickfix_list'),
   \ 'ctrl-t': 'tab split',
   \ 'ctrl-s': 'split',
   \ 'ctrl-v': 'vsplit' }
-
 let g:fzf_layout = { 'down': '~40%' }
-
 let g:fzf_colors =
 \ { 'fg':      ['fg', 'Normal'],
   \ 'bg':      ['bg', 'Normal'],
@@ -394,7 +403,9 @@ let g:fzf_colors =
   \ 'spinner': ['fg', 'Label'],
   \ 'header':  ['fg', 'Comment'] }
 
-" buffers
+" }}}
+
+" Buffers ---------------------- {{{
 
 nmap <silent> <leader>1 <Plug>AirlineSelectTab1
 nmap <silent> <leader>2 <Plug>AirlineSelectTab2
@@ -436,12 +447,17 @@ nmap <silent> <leader>s0 <C-w><C-s><Plug>AirlineSelectTab10
 nnoremap <silent> <Leader>v- :vsplit<CR>:b#<CR>
 nnoremap <silent> <Leader>s- :split<CR>:b#<CR>
 
+" }}}
+
+nnoremap <silent> <leader>ev :<C-U>e ~/.config/nvim/init.vim<CR>
+nnoremap <silent> <leader>ec :<C-U>e ~/.config/nvim/coc-settings.json<CR>
+
 " source local config, if exists
 " leave at the end so defaults can be overridden
 let g:local_config = $HOME . "/.config/nvim/init.vim"
 if filereadable(local_config)
     execute "source " . g:local_config
-endif 
+endif
 
 " Re-Source configuration
 nnoremap <silent> <leader>sv :<C-U>source ~/.config/nvim/init.vim<CR>:nohlsearch<CR>
