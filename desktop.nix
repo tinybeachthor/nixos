@@ -1,8 +1,15 @@
 { config, lib, pkgs, ... }:
 {
   imports = [
-      ./fonts.nix
-    ];
+    ./fonts.nix
+  ];
+
+  # # emacs server
+  # services.emacs = {
+  #   enable = true;
+  #   package = import ./emacs.nix { inherit pkgs; };
+  #   defaultEditor = true;
+  # };
 
   # X
   services.xserver = {
@@ -12,14 +19,15 @@
     layout = "us";
     xkbOptions = "eurosign:e, ctrl:nocaps";
 
-    # Enable pen input
-    modules = [ pkgs.xf86_input_wacom ];
-    wacom.enable = true;
+    # # Pen input
+    # wacom.enable = false;
+    # # modules = [ pkgs.xf86_input_wacom ];
+
     # Setup touch screen
     multitouch = {
-      enable = true;
-      invertScroll = true;
-      ignorePalm = true;
+      enable = false;
+      # invertScroll = true;
+      # ignorePalm = true;
     };
 
     # Enable touchpad support.
@@ -30,17 +38,15 @@
       disableWhileTyping = true;
     };
 
-    # Display managssdm
+    # Desktop
     displayManager.sddm = {
       enable = true;
     };
-    # Desktop manager
     desktopManager = {
       default = "xfce";
       xfce.enable = true;
       xterm.enable = false;
     };
-    # Window manager
     windowManager.i3 = {
       enable = true;
       extraPackages = with pkgs; [
@@ -52,10 +58,21 @@
     };
   };
 
+  services.actkbd = with pkgs; {
+    enable = true;
+    bindings = [
+      # Display
+      { keys = [ 224 ]; events = [ "key" ];
+        command = "/run/current-system/sw/bin/light -U 5"; }
+      { keys = [ 225 ]; events = [ "key" ];
+        command = "/run/current-system/sw/bin/light -A 5"; }
+    ];
+  };
+
   # Sound
   sound.enable = true;
   sound.mediaKeys.enable = true;
-  hardware.pulseaudio.enable = false;
+  hardware.pulseaudio.enable = true;
   services.headphones.enable = true;
 
   # Graphics
@@ -67,18 +84,11 @@
 
   # Display
   programs.light.enable = true;
-  services.actkbd = {
-    enable = true;
-    bindings = [
-      { keys = [ 224 ]; events = [ "key" ]; command = "/run/current-system/sw/bin/light -U 4"; }
-      { keys = [ 225 ]; events = [ "key" ]; command = "/run/current-system/sw/bin/light -A 4"; }
-    ];
-  };
-  services.redshift = {
-    enable = true;
-    temperature.day = 6500;
-    temperature.night = 2700;
-  };
+  # services.redshift = {
+  #   enable = true;
+  #   temperature.day = 6500;
+  #   temperature.night = 2700;
+  # };
 
   # Bluetooth
   hardware.bluetooth = {
@@ -106,25 +116,6 @@
   # Set zsh as default shell
   programs.zsh.enable = true;
   programs.zsh.enableCompletion = true;
-  programs.zsh.interactiveShellInit = ''
-    export ZSH=${pkgs.oh-my-zsh}/share/oh-my-zsh/
-    export ZSH_CACHE_DIR=$HOME/.cache/zsh
-
-    # Customize your oh-my-zsh options here
-    ZSH_THEME="agnoster"
-    DEFAULT_USER=martin
-    prompt_context(){}
-
-    plugins=(
-      git
-      docker
-      kubectl
-      sudo
-    )
-
-    source $ZSH/oh-my-zsh.sh
-  '';
-  programs.zsh.promptInit = ""; # Clear this to avoid a conflict with oh-my-zsh
 
   # Include nixos manual
   services.nixosManual.showManual = true;
@@ -132,27 +123,30 @@
   # User packages
   environment = {
     systemPackages = with pkgs; [
-      gnome3.gnome-calculator
-      aspellDicts.en
-      firefox
-      chromium
-      pdftk
-      vscode
-      slack
-      vlc
-      spotify
-      simplenote
-      freetype
-      fontmatrix
-      gparted
-      breeze-icons
-      imagemagick
+      i3status-rust
+
       hibernate
       powertop
       conky
-      gitkraken
+      aspellDicts.en
+      alsaUtils
+
+      freetype
+      fontmatrix
+
+      imagemagick
+      vlc
+      spotify
+      simplenote
+      firefox
+      chromium
+      gnome3.gnome-calculator
+      slack
       wireshark
       dolphin
+      breeze-icons
+      gparted
+      thunderbird
 
       xbindkeys
       xorg.xev
