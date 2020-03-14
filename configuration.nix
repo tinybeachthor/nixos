@@ -5,14 +5,18 @@
 { config, lib, pkgs, ... }:
 {
   imports =
-    [ # Include the results of the hardware scan.
+    [ # Include the result the hardware scan.
       ./hardware-configuration.nix
 
+      # Cachix package cache
       ./cachix.nix
 
+      # System setup
       ./services.nix
       ./users.nix
+      ./environment.nix
 
+      # Customized setups
       ./desktop.nix
       # ./tablet-laptop.nix
     ];
@@ -40,6 +44,7 @@
 
     # thinkpad
     "tp_smapi"
+    "acpi_call"
 
     # USB
     "xhci_pci"	    # USB3 module
@@ -77,5 +82,5 @@
   # compatible, in order to avoid breaking some software such as database
   # servers. You should change this only after NixOS release notes say you
   # should.
-  system.stateVersion = "19.03"; # Did you read the comment?
+  system.stateVersion = "19.09"; # Did you read the comment?
 }
