@@ -5,7 +5,7 @@
 { config, lib, pkgs, ... }:
 {
   imports =
-    [ # Include the result the hardware scan.
+    [ # Include the result of the hardware scan
       ./hardware-configuration.nix
 
       # Cachix package cache
@@ -28,20 +28,21 @@
 
   # setup kernel
   boot.kernelPackages = pkgs.linuxPackages_latest_hardened;
-
   # setup kernel modules
   boot.initrd.kernelModules = [
+    "tpm-rng"	# trusted platform module RNG (hardware entropy)
     "nvme"		# ssd module
   ];
   boot.kernelModules = [
     "tpm-rng"	# trusted platform module RNG (hardware entropy)
     "nvme"		# ssd module
 
+    "hibernate"
+
     # intel
     "i915" 		  # intel graphics
     "kvm-intel"	# kernel-based virtual machine
     "coretemp"	# intel cpu temperature reading
-
     # thinkpad
     "tp_smapi"
     "acpi_call"
@@ -49,10 +50,7 @@
     # USB
     "xhci_pci"	    # USB3 module
     "usb_storage" 	# USB mass storage
-
     "rtsx_pci_sdmmc"
-
-    "hibernate"
   ];
   boot.extraModulePackages = with config.boot.kernelPackages; [
     tp_smapi
