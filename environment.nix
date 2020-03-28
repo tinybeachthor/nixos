@@ -18,10 +18,6 @@ in
         "https://github.com/nix-community/NUR/archive/master.tar.gz") {
           inherit pkgs;
         };
-        kalbasit = import (builtins.fetchTarball
-        "https://github.com/kalbasit/nur-packages/archive/master.tar.gz") {
-          inherit pkgs;
-        };
       };
 
       # Configure packages
@@ -94,7 +90,6 @@ in
 
         ispell
 
-        kalbasit.nixify
         direnv
         nixfmt
 
