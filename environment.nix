@@ -39,7 +39,6 @@ in
       core-packages = [
         (pkgs.callPackage ./neovim.nix {
           neovim = unstable.neovim;
-          pkgs   = unstable;
         })
 
         acpi

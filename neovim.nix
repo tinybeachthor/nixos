@@ -4,9 +4,7 @@ let
   vimrc = builtins.readFile ./neovim.vim;
 
   python3Packages = packages: with packages; [
-    pylint
     jedi
-    black
   ];
 in
 
@@ -35,7 +33,6 @@ neovim.override {
        vim-trailing-whitespace
        vim-signature
 
-       # lsp
        coc-nvim
 
        # files
@@ -46,7 +43,6 @@ neovim.override {
        # git
        vim-fugitive
        vim-gitgutter
-       coc-git
 
        # look
        vim-airline
@@ -62,32 +58,15 @@ neovim.override {
        Jenkinsfile-vim-syntax
      ];
      opt = [
-       vim-colorschemes
-
        coc-pairs
        coc-lists
        coc-highlight
        coc-snippets
        coc-smartf
-
-       # general
+       coc-git
        coc-yaml
        coc-json
        coc-vimtex
-
-       # html-like
-       coc-css
-       coc-html
-
-       # js
-       coc-tsserver
-       coc-eslint
-
-       # lang
-       coc-python
-       coc-go
-       coc-java
-       coc-metals
      ];
    };
  };

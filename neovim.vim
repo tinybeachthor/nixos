@@ -7,8 +7,8 @@ let maplocalleader = "\<space>"
 imap jw <Esc>
 imap wj <Esc>
 
-" better marks navigation
-nnoremap <silent> <S-m> `
+" marks
+nnoremap <S-m> `
 
 " Terminal ---------------------- {{{
 
@@ -38,8 +38,7 @@ let g:netrw_list_hide = netrw_gitignore#Hide() . '.*\.swp$,.*\.un\~$,.git/$'
 
 " }}}
 
-nnoremap <silent> <leader>s :<C-u>Back<space>
-nnoremap <silent> <leader><S-s> :<C-u>Ack<space>
+nnoremap <leader><S-a> :<C-u>Back<space>
 
 " Vim basic settings ---------------------- {{{
 
@@ -449,15 +448,16 @@ nnoremap <silent> <Leader>s- :split<CR>:b#<CR>
 
 " }}}
 
+let g:local_config_dir = $HOME . "/.config/nvim/"
+
 nnoremap <silent> <leader>ev :<C-U>e ~/.config/nvim/init.vim<CR>
 nnoremap <silent> <leader>ec :<C-U>e ~/.config/nvim/coc-settings.json<CR>
 
 " source local config, if exists
 " leave at the end so defaults can be overridden
-let g:local_config = $HOME . "/.config/nvim/init.vim"
-if filereadable(local_config)
-    execute "source " . g:local_config
+if filereadable(local_config_dir . "init.vim")
+    execute "source " . g:local_config_dir . "init.vim"
 endif
 
-" Re-Source configuration
-nnoremap <silent> <leader>sv :<C-U>source ~/.config/nvim/init.vim<CR>:nohlsearch<CR>
+" re-source configuration
+nnoremap <leader>sv :<C-U>source ~/.config/nvim/init.vim<CR>:nohlsearch<CR>
