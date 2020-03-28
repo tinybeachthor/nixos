@@ -12,13 +12,13 @@ in
       allowUnfree = true;
       allowBroken = false;
 
-      # Overrides
-      packageOverrides = pkgs: {
-        nur = import (builtins.fetchTarball
-        "https://github.com/nix-community/NUR/archive/master.tar.gz") {
-          inherit pkgs;
-        };
-      };
+      # # Overrides
+      # packageOverrides = pkgs: {
+      #   nur = import (builtins.fetchTarball
+      #   "https://github.com/nix-community/NUR/archive/master.tar.gz") {
+      #     inherit pkgs;
+      #   };
+      # };
 
       # Configure packages
       firefox = {
