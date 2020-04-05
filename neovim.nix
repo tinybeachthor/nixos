@@ -35,6 +35,8 @@ neovim.override {
 
        coc-nvim
 
+       vimwiki
+
        # files
        fzf-vim
        vim-eunuch
