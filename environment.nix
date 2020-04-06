@@ -38,11 +38,9 @@ in
         })
 
         acpi
-        alsaUtils
         htop
 
         alacritty
-        qt5ct
 
         bat
         exa

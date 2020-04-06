@@ -113,9 +113,7 @@ let g:airline_section_z = '%3p%% %3l/%L:%3v'
 " Key mappings ---------------------- {{{
 
 " write all
-nnoremap <leader>w :<C-U>w<CR>
-" write single
-nnoremap <C-S> :<C-U>wa<CR>
+nnoremap <silent> <C-S> :<C-U>wa<CR>
 
 " close current
 fun! CloseCurrent()
