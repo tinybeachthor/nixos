@@ -89,6 +89,7 @@ in
         ispell
 
         direnv
+        haskellPackages.niv
         nixfmt
 
         httpie
