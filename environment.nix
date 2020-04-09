@@ -69,6 +69,13 @@ in
         curl
         iputils
         inetutils
+
+        # backup
+        gitFull
+        gitAndTools.git-annex
+        gitAndTools.gitRemoteGcrypt
+        rsync
+        bup
       ];
       crypt-packages = [
         cryptsetup
@@ -81,7 +88,6 @@ in
       development-packages = [
         gitFull
         git-hub
-        gitAndTools.git-annex
         gitAndTools.git-standup
         gitAndTools.git-absorb
         gitAndTools.git-gone
