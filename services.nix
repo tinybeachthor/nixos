@@ -62,11 +62,11 @@
     enableOnBoot = false;
   };
 
-  # # VirtualBox
-  # virtualisation.virtualbox = {
-  #   host = {
-  #     enable = true;
-  #     # enableExtensionPack = true;
-  #   };
-  # };
+  # VirtualBox
+  virtualisation.virtualbox = {
+    host = {
+      enable = true;
+      # enableExtensionPack = true;
+    };
+  };
 }
