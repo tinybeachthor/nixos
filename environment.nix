@@ -3,7 +3,6 @@
 let
   unstable = import <nixpkgs-unstable> {};
 in
-
 {
   # Setup package sources
   nixpkgs = {
@@ -33,14 +32,16 @@ in
     systemPackages = with pkgs;
     let
       core-packages = [
+        (pkgs.callPackage ./alacritty.nix {
+          alacritty = unstable.alacritty;
+          config = builtins.readFile ./alacritty.yml;
+        })
         (pkgs.callPackage ./neovim.nix {
           neovim = unstable.neovim;
         })
 
         acpi
         htop
-
-        alacritty
 
         bat
         exa
