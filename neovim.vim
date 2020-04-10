@@ -218,10 +218,15 @@ augroup filetype_gitcommit
     autocmd!
     autocmd FileType gitcommit setlocal tw=72 spell wrap
 augroup END
+" vimwiki
+augroup filetype_vimwiki
+    autocmd!
+    autocmd FileType vimwiki setlocal tw=72 spell wrap cc=120
+augroup END
 " markdown
 augroup filetype_markdown
     autocmd!
-    autocmd FileType markdown setlocal tw=72 spell wrap
+    autocmd FileType markdown setlocal tw=72 spell wrap cc=120
 augroup END
 " SQL
 let g:omni_sql_no_default_maps = 1
