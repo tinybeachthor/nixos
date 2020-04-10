@@ -101,9 +101,6 @@ in
 
         httpie
         cloc
-
-        docker
-        virtualbox
       ];
     in
       core-packages
