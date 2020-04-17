@@ -2,25 +2,26 @@
 
 {
   # Define a user account. Don't forget to set a password with ‘passwd’.
-  users.users = {
-    martin = {
-      extraGroups = [
-        "wheel"
-        "networkmanager"
-        "docker"
-        "audio"
-        "wireshark"
-        "vboxusers"
-        "libvirtd" # kvm
-      ];
+  users = {
+    defaultUserShell = pkgs.zsh;
 
-      shell = pkgs.zsh;
+    users = {
+      martin = {
+        extraGroups = [
+          "wheel"
+          "networkmanager"
+          "docker"
+          "audio"
+          "wireshark"
+          "vboxusers"
+        ];
 
-      home = "/home/martin";
-      createHome = true;
+        home = "/home/martin";
+        createHome = true;
 
-      isNormalUser = true;
-      uid = 1000;
+        isNormalUser = true;
+        uid = 1000;
+      };
     };
   };
 
