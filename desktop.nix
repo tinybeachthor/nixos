@@ -116,7 +116,7 @@
   # Set zsh as default shell
   programs.zsh.enable = true;
   programs.zsh.enableCompletion = true;
-  environment.etc.zshenv.text = builtins.readFile ./.zshrc;
+  environment.etc.zshenv.text = builtins.readFile ./configs/.zshrc;
 
   # Include nixos manual
   services.nixosManual.showManual = true;

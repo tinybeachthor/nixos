@@ -32,12 +32,13 @@ in
     systemPackages = with pkgs;
     let
       core-packages = [
-        (pkgs.callPackage ./alacritty.nix {
+        (pkgs.callPackage ./pkgs/alacritty.nix {
           alacritty = unstable.alacritty;
-          config = builtins.readFile ./alacritty.yml;
+          config = builtins.readFile ./configs/alacritty.yml;
         })
-        (pkgs.callPackage ./neovim.nix {
+        (pkgs.callPackage ./pkgs/neovim.nix {
           neovim = unstable.neovim;
+          config = builtins.readFile ./configs/neovim.vim;
         })
 
         acpi

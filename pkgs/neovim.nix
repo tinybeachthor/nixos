@@ -1,15 +1,12 @@
-{ neovim, pkgs, stdenv }:
+{ neovim, pkgs, stdenv, config }:
 
 let
-  vimrc = builtins.readFile ./neovim.vim;
-
   python3Packages = packages: with packages; [
     jedi
   ];
 in
 
 neovim.override {
-
   vimAlias = true;
   viAlias = true;
 
@@ -20,7 +17,7 @@ neovim.override {
   extraPython3Packages = python3Packages;
 
   configure = {
-    customRC = vimrc;
+    customRC = config;
     packages.myVimPackages = with pkgs.vimPlugins; {
       start = [
        # core
