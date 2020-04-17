@@ -4,13 +4,6 @@
     ./fonts.nix
   ];
 
-  # # emacs server
-  # services.emacs = {
-  #   enable = true;
-  #   package = import ./emacs.nix { inherit pkgs; };
-  #   defaultEditor = true;
-  # };
-
   # X
   services.xserver = {
     enable = true;
