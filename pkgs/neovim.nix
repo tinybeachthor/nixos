@@ -1,4 +1,4 @@
-{ neovim, pkgs, stdenv, config }:
+{ neovim, pkgs, vimUtils, stdenv, config }:
 
 let
   python3Packages = packages: with packages; [
@@ -46,6 +46,9 @@ neovim.override {
        # look
        vim-airline
        NeoSolarized
+       (pkgs.callPackage ./distilled-vim.nix {
+         buildVimPluginFrom2Nix = vimUtils.buildVimPluginFrom2Nix;
+       })
 
        # languages
        vim-nix
