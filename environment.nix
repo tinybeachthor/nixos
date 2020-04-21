@@ -27,6 +27,9 @@ in
     };
   };
 
+  # Enable program extensions
+  programs.gnupg.agent.enable = true;
+
   # Add packages to environment
   environment = {
     systemPackages = with pkgs;

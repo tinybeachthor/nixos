@@ -1,11 +1,12 @@
 { config, pkgs, ... }:
+
 {
   fonts = {
     fontconfig.enable = true;
-    enableCoreFonts = true;
     enableFontDir = true;
     enableGhostscriptFonts = true;
     fonts = with pkgs; [
+      corefonts
       terminus_font
       corefonts           # Microsoft free fonts
       inconsolata         # monospaced

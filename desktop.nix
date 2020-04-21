@@ -12,17 +12,6 @@
     layout = "us";
     xkbOptions = "eurosign:e, ctrl:nocaps";
 
-    # # Pen input
-    # wacom.enable = false;
-    # # modules = [ pkgs.xf86_input_wacom ];
-
-    # Setup touch screen
-    multitouch = {
-      enable = false;
-      # invertScroll = true;
-      # ignorePalm = true;
-    };
-
     # Enable touchpad support.
     synaptics.enable = false;
     libinput = {
@@ -32,11 +21,7 @@
     };
 
     # Desktop
-    displayManager.sddm = {
-      enable = true;
-    };
     desktopManager = {
-      default = "xfce";
       xfce.enable = true;
       xterm.enable = false;
     };
@@ -49,6 +34,10 @@
       ];
       package = pkgs.i3-gaps;
     };
+    displayManager = {
+      sddm.enable = true;
+    };
+    displayManager.defaultSession = "none+i3";
   };
 
   services.actkbd = with pkgs; {
@@ -64,9 +53,10 @@
 
   # Sound
   sound.enable = true;
-  sound.mediaKeys.enable = true;
   hardware.pulseaudio.enable = true;
+  systemd.user.services.pulseaudio.enable = true;
   services.headphones.enable = true;
+  sound.mediaKeys.enable = true;
 
   # Graphics
   hardware.opengl.extraPackages = with pkgs; [

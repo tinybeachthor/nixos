@@ -18,7 +18,6 @@
 
       # Customized setups
       ./desktop.nix
-      # ./tablet-laptop.nix
     ];
 
   # Use swap device
@@ -26,9 +25,8 @@
     { device = "/dev/disk/by-label/swap"; }
   ];
 
-  # setup kernel
-  boot.kernelPackages = pkgs.linuxPackages_latest_hardened;
-  # setup kernel modules
+  # Kernel
+  boot.kernelPackages = pkgs.linuxPackages_hardened;
   boot.initrd.kernelModules = [
     "tpm-rng"	# trusted platform module RNG (hardware entropy)
     "nvme"		# ssd module
@@ -69,9 +67,11 @@
 
   # Select internationalisation properties.
   i18n = {
-    consoleFont = "Lat2-Terminus16";
-    consoleKeyMap = "us";
     defaultLocale = "en_US.UTF-8";
+  };
+  console = {
+    font = "Lat2-Terminus16";
+    keyMap = "us";
   };
   # Set your time zone.
   time.timeZone = "Europe/Amsterdam";

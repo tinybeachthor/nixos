@@ -30,7 +30,6 @@
     # usbguard - BadUSB protection
     usbguard = {
       enable = true;
-
       # Non-GUI package
       package = pkgs.usbguard-nox;
     };
@@ -48,6 +47,7 @@
       CPU_MIN_PERF_ON_BAT=0
       CPU_MAX_PERF_ON_BAT=35
     '';
+    upower.enable = true;
 
     # network configuration
     avahi = {
