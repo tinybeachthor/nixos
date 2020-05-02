@@ -4,6 +4,10 @@ let
   unstable = import <nixpkgs-unstable> {};
 in
 {
+  imports = [
+    ./zsh.nix
+  ];
+
   # Setup package sources
   nixpkgs = {
     config = {
