@@ -92,7 +92,8 @@ in
       ];
       development-packages = [
         gitFull
-        git-hub
+        gitAndTools.git-hub
+        gitAndTools.hub
         gitAndTools.git-standup
         gitAndTools.git-absorb
         gitAndTools.git-gone
