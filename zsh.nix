@@ -50,7 +50,10 @@ in
   ];
   programs.zsh.promptInit = ''
     source ${p10k}/powerlevel10k.zsh-theme
-    [[ ! -f $HOME/.p10k.zsh ]] || source $HOME/.p10k.zsh
+  ''
+  + builtins.readFile ./configs/.p10k.zsh +
+  ''
+    [[ -f $HOME/.p10k.zsh ]] && source $HOME/.p10k.zsh
   '';
 
   # Set zsh as default shell
