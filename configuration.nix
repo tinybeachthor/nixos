@@ -15,6 +15,7 @@
       ./services.nix
       ./users.nix
       ./environment.nix
+      ./zsh.nix
 
       # Customized setups
       ./desktop.nix
