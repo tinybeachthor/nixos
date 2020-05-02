@@ -20,6 +20,8 @@
       disableWhileTyping = true;
     };
 
+    wacom.enable = true;
+
     # Desktop
     desktopManager = {
       xfce.enable = true;
