@@ -48,6 +48,7 @@
   ];
   boot.extraModulePackages = with config.boot.kernelPackages; [
     tp_smapi
+    acpi_call
   ];
   boot.kernelParams = [
   	"ipv6.disable=0"
