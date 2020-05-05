@@ -20,10 +20,6 @@
       ./desktop.nix
     ];
 
-  # Use swap device
-  swapDevices = [
-    { device = "/dev/disk/by-label/swap"; }
-  ];
 
   # Kernel
   boot.kernelPackages = pkgs.linuxPackages_hardened;
