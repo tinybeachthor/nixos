@@ -32,7 +32,7 @@
   nix.autoOptimiseStore = true;
 
   # Kernel
-  boot.kernelPackages = pkgs.linuxPackages_hardened;
+  boot.kernelPackages = pkgs.linuxPackages_latest_hardened;
   boot.initrd.kernelModules = [
     "tpm-rng"	# trusted platform module RNG (hardware entropy)
     "nvme"		# ssd module
