@@ -10,7 +10,7 @@
           "networkmanager"
           "docker"
           "audio"
-          "vboxusers"
+          # "vboxusers"
         ];
 
         home = "/home/martin";
@@ -21,6 +21,4 @@
       };
     };
   };
-
-  users.extraGroups.vboxusers.members = [ "martin" ];
 }
