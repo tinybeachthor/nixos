@@ -131,7 +131,6 @@
       chromium
       gnome3.gnome-calculator
       slack
-      wireshark
       dolphin
       breeze-icons
       gparted

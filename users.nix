@@ -10,7 +10,6 @@
           "networkmanager"
           "docker"
           "audio"
-          "wireshark"
           "vboxusers"
         ];
 
