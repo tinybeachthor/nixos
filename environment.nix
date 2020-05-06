@@ -41,11 +41,11 @@ in
       core-packages = [
         (pkgs.callPackage ./pkgs/alacritty.nix {
           alacritty = unstable.alacritty;
-          config = builtins.readFile ./configs/alacritty.yml;
+          config = builtins.readFile ./.config/alacritty.yml;
         })
         (pkgs.callPackage ./pkgs/neovim.nix {
           neovim = unstable.neovim;
-          config = builtins.readFile ./configs/neovim.vim;
+          config = builtins.readFile ./.config/neovim.vim;
         })
 
         acpi
@@ -66,6 +66,7 @@ in
         findutils
         fzf
         ripgrep
+        vifm
         jq
 
         zip
@@ -103,6 +104,7 @@ in
         gitAndTools.git-gone
 
         ispell
+        aspellDicts.en
 
         direnv
         haskellPackages.niv

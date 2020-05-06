@@ -113,36 +113,26 @@
   environment = {
     systemPackages = with pkgs; [
       i3status-rust
-
-      hibernate
-      powertop
       conky
-      aspellDicts.en
-      alsaUtils
+      xss-lock
 
-      freetype
-      fontmatrix
+      xclip
+      xorg.xhost
 
       imagemagick
       vlc
       spotify
-      simplenote
       firefox
       chromium
       gnome3.gnome-calculator
       slack
       dolphin
       breeze-icons
-      gparted
       thunderbird
-
-      xbindkeys
-      xorg.xev
-      xclip
-      xfontsel
-      xsel
-      xss-lock
       xterm
+
+      hibernate
+      powertop
     ];
   };
 }

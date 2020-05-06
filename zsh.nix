@@ -42,7 +42,7 @@ in
   programs.zsh.histSize = 100000;
   programs.zsh.histFile = "$HOME/.histfile";
 
-  environment.etc.zshenv.text = builtins.readFile ./configs/.zshrc;
+  environment.etc.zshenv.text = builtins.readFile ./.config/.zshrc;
 
   # Setup prompt
   environment.systemPackages = [
@@ -51,7 +51,7 @@ in
   programs.zsh.promptInit = ''
     source ${p10k}/powerlevel10k.zsh-theme
   ''
-  + builtins.readFile ./configs/.p10k.zsh +
+  + builtins.readFile ./.config/.p10k.zsh +
   ''
     [[ -f $HOME/.p10k.zsh ]] && source $HOME/.p10k.zsh
   '';
