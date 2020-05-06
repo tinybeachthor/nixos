@@ -8,7 +8,6 @@
     [ # Include the result of the hardware scan
       ./hardware-configuration.nix
 
-      # Cachix package cache
       ./cachix.nix
 
       # System setup
@@ -70,7 +69,10 @@
   ];
 
   # Use the systemd-boot EFI boot loader.
-  boot.loader.systemd-boot.enable = true;
+  boot.loader.systemd-boot = {
+    enable = true;
+    editor = false;
+  };
   boot.loader.efi.canTouchEfiVariables = true;
 
   # Select internationalisation properties.
