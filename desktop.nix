@@ -55,10 +55,18 @@
 
   # Sound
   sound.enable = true;
-  hardware.pulseaudio.enable = true;
-  systemd.user.services.pulseaudio.enable = true;
-  services.headphones.enable = true;
   sound.mediaKeys.enable = true;
+
+  hardware.pulseaudio = {
+    enable = true;
+    package = pkgs.pulseaudio.override {
+      useSystemd = true;
+      systemd = pkgs.systemd;
+    };
+  };
+  systemd.user.services.pulseaudio.enable = true;
+
+  services.headphones.enable = true;
 
   # Graphics
   hardware.opengl.extraPackages = with pkgs; [
