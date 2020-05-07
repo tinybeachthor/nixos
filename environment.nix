@@ -1,8 +1,5 @@
 { pkgs, ... }:
 
-let
-  unstable = import <nixpkgs-unstable> {};
-in
 {
   imports = [
     ./zsh.nix
@@ -15,13 +12,8 @@ in
       allowUnfree = true;
       allowBroken = false;
 
-      # # Overrides
-      # packageOverrides = pkgs: {
-      #   nur = import (builtins.fetchTarball
-      #   "https://github.com/nix-community/NUR/archive/master.tar.gz") {
-      #     inherit pkgs;
-      #   };
-      # };
+      # Overrides
+      packageOverrides = pkgs: import ./pkgs/overrides.nix { inherit pkgs; };
 
       # Configure packages
       firefox = {
@@ -39,12 +31,10 @@ in
     systemPackages = with pkgs;
     let
       core-packages = [
-        (pkgs.callPackage ./pkgs/alacritty.nix {
-          alacritty = unstable.alacritty;
+        (alacritty {
           config = builtins.readFile ./.config/alacritty.yml;
         })
-        (pkgs.callPackage ./pkgs/neovim.nix {
-          neovim = unstable.neovim;
+        (neovim {
           config = builtins.readFile ./.config/neovim.vim;
         })
 
