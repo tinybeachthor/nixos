@@ -11,6 +11,8 @@
       inherit neovim;
       inherit config;
     };
+  jlink = pkgs.callPackage ./jlink.nix { };
+  operator-sdk = pkgs.callPackage ./operator-sdk.nix { };
 
   vimPlugins = pkgs.vimPlugins // {
     distilled-vim =
