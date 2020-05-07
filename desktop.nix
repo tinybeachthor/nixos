@@ -4,6 +4,9 @@
     ./fonts.nix
   ];
 
+  # User mount disks
+  services.udisks2.enable = true;
+
   # X
   services.xserver = {
     enable = true;
