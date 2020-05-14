@@ -3,11 +3,11 @@
     ../modules/nix.nix
     ../modules/zsh.nix
 
-    ./services.nix
+    ../services.nix
 
-    ./users.nix
-    ./environment.nix
+    ../users.nix
+    ../environment.nix
 
-    ./desktop.nix
+    ../desktop.nix
   ];
 }

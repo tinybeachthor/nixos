@@ -11,6 +11,9 @@
     overrides.nix  # Exports all pkgs
     ...
 
+  modules/         # Standalone tidbits
+    ...
+
   profiles/        # Full system configs
     base.nix
     ...
