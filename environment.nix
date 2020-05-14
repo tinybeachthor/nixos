@@ -1,24 +1,6 @@
 { pkgs, ... }:
 
 {
-  # Setup package sources
-  nixpkgs = {
-    config = {
-      # Allow proprietary packages
-      allowUnfree = true;
-      allowBroken = false;
-
-      # Overrides
-      packageOverrides = pkgs: import ./pkgs/overrides.nix { inherit pkgs; };
-
-      # Configure packages
-      firefox = {
-       enableGnomeExtensions = false;
-       enableGoogleTalkPlugin = false;
-      };
-    };
-  };
-
   # Enable program extensions
   programs.gnupg.agent.enable = true;
 

@@ -11,4 +11,20 @@
     ../modules/fonts.nix
     ../desktop.nix
   ];
+
+  # Setup package sources
+  nixpkgs = {
+    config = {
+      allowUnfree = true;  # Allow proprietary packages
+      allowBroken = false;
+
+      packageOverrides = pkgs: import ../pkgs/overrides.nix { inherit pkgs; };
+
+      # Configure packages
+      firefox = {
+       enableGnomeExtensions = false;
+       enableGoogleTalkPlugin = false;
+      };
+    };
+  };
 }
