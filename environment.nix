@@ -1,10 +1,6 @@
 { pkgs, ... }:
 
 {
-  imports = [
-    ./zsh.nix
-  ];
-
   # Setup package sources
   nixpkgs = {
     config = {
