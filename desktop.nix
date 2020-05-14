@@ -1,9 +1,5 @@
 { config, lib, pkgs, ... }:
 {
-  imports = [
-    ./fonts.nix
-  ];
-
   # User mount disks
   services.udisks2.enable = true;
 

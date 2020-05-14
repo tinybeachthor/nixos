@@ -8,6 +8,7 @@
     ../users.nix
     ../environment.nix
 
+    ../modules/fonts.nix
     ../desktop.nix
   ];
 }
