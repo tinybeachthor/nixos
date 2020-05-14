@@ -52,6 +52,8 @@
     ];
   };
 
+  services.upower.enable = true; # needed by i3status-rust
+
   # Sound
   sound.enable = true;
   sound.mediaKeys.enable = true;
@@ -125,7 +127,6 @@
       xterm
 
       hibernate
-      powertop
     ];
   };
 }

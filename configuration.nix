@@ -27,6 +27,7 @@
     "i915" 		  # intel graphics
     "kvm-intel"	# kernel-based virtual machine
     "coretemp"	# intel cpu temperature reading
+
     # thinkpad
     "tp_smapi"
     "acpi_call"
@@ -41,13 +42,8 @@
     acpi_call
   ];
   boot.kernelParams = [
-  	"ipv6.disable=0"
-    "iwlwifi.power_save=Y"
-    "acpi_brightness=vendor"
-    "pcie_aspm=powersave"
-    "i915.enable_rc6=7" "i915.enable_psr=2" "i915.enable_fbc=1" "i915.lvds_downclock=1" "i915.semaphores=1"
+    "ipv6.disable=0"
   ];
-
   # Use the systemd-boot EFI boot loader.
   boot.loader.systemd-boot = {
     enable = true;

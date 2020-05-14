@@ -1,5 +1,6 @@
 {
   imports = [
+    ../modules/powersave.nix
     ../modules/nix.nix
     ../modules/zsh.nix
 
