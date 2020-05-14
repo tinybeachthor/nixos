@@ -82,12 +82,6 @@
   #   temperature.night = 2700;
   # };
 
-  # Bluetooth
-  hardware.bluetooth = {
-    enable = false;
-    powerOnBoot = false;
-  };
-
   # Trackpoint
   hardware.trackpoint = {
     enable = true;
