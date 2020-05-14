@@ -21,9 +21,6 @@
   location.provider = "geoclue2";
 
   services = {
-    # nix-shell cached replacement
-    lorri.enable = true;
-
     # SSD block reclamation service
     fstrim.enable = true;
 
