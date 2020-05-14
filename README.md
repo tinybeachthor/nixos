@@ -11,6 +11,10 @@
     overrides.nix  # Exports all pkgs
     ...
 
+  profiles/        # Full system configs
+    base.nix
+    ...
+
   cachix/
   cachix.nix
   hardware-configuration.nix

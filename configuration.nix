@@ -4,20 +4,12 @@
 
 { config, lib, pkgs, ... }:
 {
-  imports =
-    [ # Include the result of the hardware scan
-      ./hardware-configuration.nix
+  imports = [
+    ./hardware-configuration.nix
+    ./cachix.nix
 
-      ./cachix.nix
-
-      # System setup
-      ./services.nix
-      ./users.nix
-      ./environment.nix
-
-      # Customized setups
-      ./desktop.nix
-    ];
+    ./profiles/base.nix
+  ];
 
   # Kernel
   boot.kernelPackages = pkgs.linuxPackages_latest_hardened;
