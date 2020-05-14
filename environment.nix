@@ -111,7 +111,5 @@
     variables.VISUAL = "nvim";
 
     variables.QT_QPA_PLATFORMTHEME = "qt5ct";
-
-    shellAliases = import ./aliases.nix;
   };
 }

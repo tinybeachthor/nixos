@@ -11,6 +11,10 @@
     ./profiles/base.nix
   ];
 
+  environment = {
+    shellAliases = import ./aliases.nix;
+  };
+
   # Kernel
   boot.kernelPackages = pkgs.linuxPackages_latest_hardened;
   boot.initrd.kernelModules = [
