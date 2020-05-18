@@ -21,12 +21,14 @@
   grlg="git reflog";
 
   ga="git add";
+  gap="git add -p";
   gaa="git add --all";
   gco="git checkout";
   gcob="git checkout -b";
   grm="git rm -r";
 
   gc="git commit -v";
+  gcp="git commit -v -p";
   gca="git commit -v -a";
   gcm="git commit -v --amend";
   gcam="git commit -v -a --amend";
@@ -47,13 +49,13 @@
   grbim="git fetch && git rebase --interactive origin/master";
   grbc="git rebase --continue";
   grba="git rebase --abort";
-  gcp="git cherry-pick";
+  gchp="git cherry-pick";
 
   gb="git branch";
   gf="git fetch";
   gp="git push --set-upstream origin $(git branch --show-current)";
   gpf="git push --force-with-lease --set-upstream origin $(git branch --show-current)";
-  gl="git pull origin $(git branch --show-current)";
+  gl="git pull origin $(git branch --show-current) --rebase";
   gptags="git push --tags";
   gpftags="git push --force-with-lease --tags";
 
