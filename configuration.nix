@@ -16,7 +16,6 @@
   };
 
   # Kernel
-  boot.kernelPackages = pkgs.linuxPackages_latest_hardened;
   boot.kernelModules = [
     "tpm-rng"	# trusted platform module RNG (hardware entropy)
     "nvme"		# ssd module

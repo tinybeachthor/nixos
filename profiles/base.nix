@@ -1,3 +1,5 @@
+{ pkgs, ... }:
+
 {
   imports = [
     ../modules/powersave.nix
@@ -13,18 +15,23 @@
     ../desktop.nix
   ];
 
-  # Setup package sources
-  nixpkgs = {
-    config = {
-      allowUnfree = true;  # Allow proprietary packages
-      allowBroken = false;
+  config = {
+    # Kernel
+    boot.kernelPackages = pkgs.linuxPackages_latest_hardened;
 
-      packageOverrides = pkgs: import ../pkgs/overrides.nix { inherit pkgs; };
+    # Setup package sources
+    nixpkgs = {
+      config = {
+        allowUnfree = true;  # Allow proprietary packages
+        allowBroken = false;
 
-      # Configure packages
-      firefox = {
-       enableGnomeExtensions = false;
-       enableGoogleTalkPlugin = false;
+        packageOverrides = pkgs: import ../pkgs/overrides.nix { inherit pkgs; };
+
+        # Configure packages
+        firefox = {
+        enableGnomeExtensions = false;
+        enableGoogleTalkPlugin = false;
+        };
       };
     };
   };
