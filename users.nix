@@ -10,7 +10,8 @@
           "networkmanager"
           "docker"
           "audio"
-          # "vboxusers"
+          "video"
+          "vboxusers"
         ];
 
         home = "/home/martin";
