@@ -27,12 +27,6 @@
   boot.kernelParams = [
     "ipv6.disable=0"
   ];
-  # Use the systemd-boot EFI boot loader.
-  boot.loader.systemd-boot = {
-    enable = true;
-    editor = false;
-  };
-  boot.loader.efi.canTouchEfiVariables = true;
 
   # Select internationalisation properties.
   i18n = {

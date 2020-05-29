@@ -2,6 +2,7 @@
 
 {
   imports = [
+    ../modules/systemd-boot.nix
     ../modules/powersave.nix
     ../modules/nix.nix
     ../modules/zsh.nix
