@@ -9,7 +9,6 @@
 
     ../services.nix
 
-    ../users.nix
     ../environment.nix
 
     ../modules/fonts.nix

@@ -12,6 +12,8 @@
 
     ./extras/intel.nix
     ./extras/thinkpad.nix
+
+    ./users.nix
   ];
 
   environment = {
