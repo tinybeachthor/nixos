@@ -26,12 +26,6 @@
         allowBroken = false;
 
         packageOverrides = pkgs: import ../pkgs/overrides.nix { inherit pkgs; };
-
-        # Configure packages
-        firefox = {
-        enableGnomeExtensions = false;
-        enableGoogleTalkPlugin = false;
-        };
       };
     };
   };
