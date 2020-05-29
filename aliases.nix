@@ -64,6 +64,8 @@
   greao="git remote add origin";
   greau="git remote add upstream";
 
+  gclean="git clean -i";
+
   gsup="git standup";
   ggone="git gone";
 
