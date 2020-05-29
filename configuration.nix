@@ -9,6 +9,9 @@
     ./cachix.nix
 
     ./profiles/base.nix
+
+    ./extras/intel.nix
+    ./extras/thinkpad.nix
   ];
 
   environment = {
@@ -18,27 +21,8 @@
   # Kernel
   boot.kernelModules = [
     "tpm-rng"	# trusted platform module RNG (hardware entropy)
-    "nvme"		# ssd module
 
     "hibernate"
-
-    # intel
-    "i915" 		  # intel graphics
-    "kvm-intel"	# kernel-based virtual machine
-    "coretemp"	# intel cpu temperature reading
-
-    # thinkpad
-    "tp_smapi"
-    "acpi_call"
-
-    # USB
-    "xhci_pci"	    # USB3 module
-    "usb_storage" 	# USB mass storage
-    "rtsx_pci_sdmmc"
-  ];
-  boot.extraModulePackages = with config.boot.kernelPackages; [
-    tp_smapi
-    acpi_call
   ];
   boot.kernelParams = [
     "ipv6.disable=0"
