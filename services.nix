@@ -1,13 +1,6 @@
 { config, pkgs, ... }:
 
 {
-  hardware = {
-    enableAllFirmware = true;
-    enableRedistributableFirmware = true;
-
-    cpu.intel.updateMicrocode = config.hardware.enableRedistributableFirmware;
-  };
-
   networking = {
     hostName = "ALBATROSS";
     networkmanager.enable = true;
