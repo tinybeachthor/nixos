@@ -1,4 +1,4 @@
-{ pkgs, ... }:
+{ pkgs, lib, ... }:
 
 {
   imports = [
@@ -19,6 +19,15 @@
     # Kernel
     boot.kernelPackages = pkgs.linuxPackages_latest_hardened;
 
+    boot.kernelModules = [
+      "tpm-rng"	# trusted platform module RNG (hardware entropy)
+
+      "hibernate"
+    ];
+    boot.kernelParams = [
+      "ipv6.disable=0"
+    ];
+
     # Setup package sources
     nixpkgs = {
       config = {
@@ -28,5 +37,10 @@
         packageOverrides = pkgs: import ../pkgs/overrides.nix { inherit pkgs; };
       };
     };
+
+    # Internationalisation
+    i18n.defaultLocale = lib.mkDefault "en_US.UTF-8";
+    console.font       = lib.mkDefault "Lat2-Terminus16";
+    console.keyMap     = lib.mkDefault "us";
   };
 }

@@ -16,28 +16,8 @@
     ./users.nix
   ];
 
-  environment = {
-    shellAliases = import ./aliases.nix;
-  };
+  environment.shellAliases = import ./aliases.nix;
 
-  # Kernel
-  boot.kernelModules = [
-    "tpm-rng"	# trusted platform module RNG (hardware entropy)
-
-    "hibernate"
-  ];
-  boot.kernelParams = [
-    "ipv6.disable=0"
-  ];
-
-  # Select internationalisation properties.
-  i18n = {
-    defaultLocale = "en_US.UTF-8";
-  };
-  console = {
-    font = "Lat2-Terminus16";
-    keyMap = "us";
-  };
   # Set your time zone.
   time.timeZone = "Europe/Amsterdam";
 
