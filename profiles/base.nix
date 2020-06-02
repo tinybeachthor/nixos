@@ -42,6 +42,21 @@
   console.font       = lib.mkDefault "Lat2-Terminus16";
   console.keyMap     = lib.mkDefault "us";
 
+  # System packages
+  environment.systemPackages = with pkgs; [
+    # Desktop packages
+    dolphin
+    breeze-icons
+    firefox
+    chromium
+    imagemagick
+    vlc
+    spotify
+    slack
+    thunderbird
+    gnome3.gnome-calculator
+  ];
+
   # Include nixos manual
   services.nixosManual.showManual = true;
 }

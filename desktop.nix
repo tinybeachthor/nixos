@@ -42,21 +42,4 @@
     enable = true;
     emulateWheel = true;
   };
-
-  # User packages
-  environment = {
-    systemPackages = with pkgs; [
-      imagemagick
-      vlc
-      spotify
-      firefox
-      chromium
-      gnome3.gnome-calculator
-      slack
-      dolphin
-      breeze-icons
-      thunderbird
-      xterm
-    ];
-  };
 }
