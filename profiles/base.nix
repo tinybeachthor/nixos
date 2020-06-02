@@ -4,6 +4,7 @@
   imports = [
     ../modules/systemd-boot.nix
     ../modules/powersave.nix
+    ../modules/hibernate.nix
     ../modules/nix.nix
     ../modules/zsh.nix
 
@@ -21,9 +22,7 @@
     boot.kernelPackages = pkgs.linuxPackages_latest_hardened;
 
     boot.kernelModules = [
-      "tpm-rng"	# trusted platform module RNG (hardware entropy)
-
-      "hibernate"
+      "tpm-rng"	# Trusted Platform Module RNG (hardware entropy)
     ];
     boot.kernelParams = [
       "ipv6.disable=0"

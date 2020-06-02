@@ -50,20 +50,6 @@
     emulateWheel = true;
   };
 
-  # Power management
-  services.logind = {
-    lidSwitch = "suspend-then-hibernate";
-    # don’t shutdown when power button is short-pressed
-    extraConfig = "HandlePowerKey=ignore";
-  };
-  environment.etc."systemd/sleep.conf".text = ''
-    [Sleep]
-    HibernateDelaySec=1h
-  '';
-
-  # Include nixos manual
-  services.nixosManual.showManual = true;
-
   # User packages
   environment = {
     systemPackages = with pkgs; [
@@ -78,8 +64,6 @@
       breeze-icons
       thunderbird
       xterm
-
-      hibernate
     ];
   };
 }
