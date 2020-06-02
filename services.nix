@@ -1,4 +1,5 @@
 { config, pkgs, ... }:
+
 {
   hardware = {
     enableAllFirmware = true;
@@ -32,18 +33,4 @@
       nssmdns = true;
     };
   };
-
-  # Docker
-  virtualisation.docker = {
-    enable = true;
-    enableOnBoot = false;
-  };
-
-  # # VirtualBox
-  # virtualisation.virtualbox = {
-  #   host = {
-  #     enable = true;
-  #     # enableExtensionPack = true;
-  #   };
-  # };
 }
