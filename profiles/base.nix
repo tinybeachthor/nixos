@@ -1,4 +1,4 @@
-{ pkgs, lib, ... }:
+{ config, pkgs, lib, ... }:
 
 {
   imports = [
@@ -17,33 +17,31 @@
     ../modules/i3.nix
   ];
 
-  config = {
-    # Kernel
-    boot.kernelPackages = pkgs.linuxPackages_latest_hardened;
+  # Kernel
+  boot.kernelPackages = pkgs.linuxPackages_latest_hardened;
 
-    boot.kernelModules = [
-      "tpm-rng"	# Trusted Platform Module RNG (hardware entropy)
-    ];
-    boot.kernelParams = [
-      "ipv6.disable=0"
-    ];
+  boot.kernelModules = [
+    "tpm-rng"	# Trusted Platform Module RNG (hardware entropy)
+  ];
+  boot.kernelParams = [
+    "ipv6.disable=0"
+  ];
 
-    # Setup package sources
-    nixpkgs = {
-      config = {
-        allowUnfree = true;  # Allow proprietary packages
-        allowBroken = false;
+  # Setup package sources
+  nixpkgs = {
+    config = {
+      allowUnfree = true;  # Allow proprietary packages
+      allowBroken = false;
 
-        packageOverrides = pkgs: import ../pkgs/overrides.nix { inherit pkgs; };
-      };
+      packageOverrides = pkgs: import ../pkgs/overrides.nix { inherit pkgs; };
     };
-
-    # Internationalisation
-    i18n.defaultLocale = lib.mkDefault "en_US.UTF-8";
-    console.font       = lib.mkDefault "Lat2-Terminus16";
-    console.keyMap     = lib.mkDefault "us";
-
-    # Include nixos manual
-    services.nixosManual.showManual = true;
   };
+
+  # Internationalisation
+  i18n.defaultLocale = lib.mkDefault "en_US.UTF-8";
+  console.font       = lib.mkDefault "Lat2-Terminus16";
+  console.keyMap     = lib.mkDefault "us";
+
+  # Include nixos manual
+  services.nixosManual.showManual = true;
 }
