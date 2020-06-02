@@ -29,13 +29,6 @@
 
   services.headphones.enable = true;
 
-  # Graphics
-  hardware.opengl.extraPackages = with pkgs; [
-    vaapiIntel
-    vaapiVdpau
-    libvdpau-va-gl
-  ];
-
   # Display
   programs.light.enable = true;
   # services.redshift = {

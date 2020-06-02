@@ -1,4 +1,4 @@
-{ config, ... }:
+{ config, pkgs, ... }:
 
 {
   boot.kernelModules = [
@@ -12,4 +12,8 @@
     enableRedistributableFirmware = true;
     cpu.intel.updateMicrocode = config.hardware.enableRedistributableFirmware;
   };
+
+  hardware.opengl.extraPackages = with pkgs; [
+    vaapiIntel
+  ];
 }
