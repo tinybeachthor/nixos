@@ -12,6 +12,7 @@
 
     ./extras/intel.nix
     ./extras/thinkpad.nix
+    ./extras/wacom.nix
 
     ./users.nix
   ];

@@ -13,6 +13,7 @@
 
     ../modules/fonts.nix
     ../desktop.nix
+    ../modules/i3.nix
   ];
 
   config = {

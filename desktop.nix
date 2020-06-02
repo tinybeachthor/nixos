@@ -3,44 +3,6 @@
   # User mount disks
   services.udisks2.enable = true;
 
-  # X
-  services.xserver = {
-    enable = true;
-    enableCtrlAltBackspace = true;
-
-    layout = "us";
-    xkbOptions = "eurosign:e, ctrl:nocaps";
-
-    # Enable touchpad support.
-    synaptics.enable = false;
-    libinput = {
-      enable = true;
-      naturalScrolling = true;
-      disableWhileTyping = true;
-    };
-
-    wacom.enable = true;
-
-    # Desktop
-    desktopManager = {
-      xfce.enable = true;
-      xterm.enable = false;
-    };
-    windowManager.i3 = {
-      enable = true;
-      extraPackages = with pkgs; [
-        rofi
-        i3status-rust
-        i3lock-color
-      ];
-      package = pkgs.i3-gaps;
-    };
-    displayManager = {
-      sddm.enable = true;
-    };
-    displayManager.defaultSession = "none+i3";
-  };
-
   services.actkbd = with pkgs; {
     enable = true;
     bindings = [
@@ -51,8 +13,6 @@
         command = "/run/current-system/sw/bin/light -A 5"; }
     ];
   };
-
-  services.upower.enable = true; # needed by i3status-rust
 
   # Sound
   sound.enable = true;
@@ -107,13 +67,6 @@
   # User packages
   environment = {
     systemPackages = with pkgs; [
-      i3status-rust
-      conky
-      xss-lock
-
-      xclip
-      xorg.xhost
-
       imagemagick
       vlc
       spotify
