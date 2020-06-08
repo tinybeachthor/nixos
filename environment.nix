@@ -16,6 +16,8 @@
           config = builtins.readFile ./.config/neovim.vim;
         })
 
+        cachix
+
         acpi
         htop
 
