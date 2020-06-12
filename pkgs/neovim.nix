@@ -29,6 +29,7 @@ neovim.override {
        ferret
        vim-trailing-whitespace
        vim-signature
+       vim-sneak
 
        coc-nvim
 
@@ -58,7 +59,6 @@ neovim.override {
        Jenkinsfile-vim-syntax
      ];
      opt = [
-       coc-pairs
        coc-lists
        coc-highlight
        coc-snippets
