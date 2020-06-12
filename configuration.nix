@@ -15,6 +15,8 @@
     ./extras/wacom.nix
 
     ./users.nix
+
+    <home-manager/nixos>
   ];
 
   virtualisation.docker = {
