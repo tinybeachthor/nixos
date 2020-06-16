@@ -30,6 +30,7 @@ neovim.override {
        vim-trailing-whitespace
        vim-signature
        vim-sneak
+       vim-abolish
 
        coc-nvim
 
