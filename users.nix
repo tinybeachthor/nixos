@@ -35,7 +35,12 @@ in
         smosModule
       ];
 
-      programs.smos.enable = true;
+      programs.smos = {
+        enable = true;
+        extraConfig = ''
+          workflow-dir: "/home/martin/.smos/workflow"
+        '';
+      };
 
       home.packages = with pkgs; [ ];
     };
