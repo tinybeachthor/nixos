@@ -138,10 +138,6 @@ nnoremap <leader>ns <C-w><C-s>:<C-U>e<SPACE>
 nnoremap <leader>nv <C-w><C-v>:<C-U>e<SPACE>
 nnoremap <leader>nt :<C-U>tabedit<SPACE>
 
-" horizontal <-> vertical splits
-nnoremap <leader>swh <C-w>t<C-w>K
-nnoremap <leader>swv <C-w>t<C-w>H
-
 " cycle windows
 fun! NextBufferWindow()
     let last = winnr('$')
