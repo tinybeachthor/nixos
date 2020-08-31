@@ -58,6 +58,7 @@ neovim.override {
        haskell-vim
        vim-go
        Jenkinsfile-vim-syntax
+       vim-mdx-js
      ];
      opt = [
        coc-lists

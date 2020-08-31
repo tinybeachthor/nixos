@@ -19,5 +19,9 @@
       pkgs.callPackage ./distilled-vim.nix {
         buildVimPluginFrom2Nix = pkgs.vimUtils.buildVimPluginFrom2Nix;
       };
+    vim-mdx-js =
+      pkgs.callPackage ./vim-mdx-js.nix {
+        buildVimPluginFrom2Nix = pkgs.vimUtils.buildVimPluginFrom2Nix;
+      };
   };
 }
