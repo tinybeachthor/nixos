@@ -145,7 +145,8 @@ fun! NextBufferWindow()
     let new = current + 1
     while new <= last
       " if not a special window
-      if (getwinvar(new, '&syntax') != 'qf')
+      let syntax = getwinvar(new, '&syntax')
+      if (syntax != 'qf' && syntax != '')
         execute new.'wincmd w'
         return
       endif
@@ -154,7 +155,8 @@ fun! NextBufferWindow()
     let new = 1
     while new <= current
       " if not a special window
-      if (getwinvar(new, '&syntax') != 'qf')
+      let syntax = getwinvar(new, '&syntax')
+      if (syntax != 'qf' && syntax != '')
         execute new.'wincmd w'
         return
       endif
