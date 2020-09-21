@@ -9,6 +9,7 @@
           "networkmanager"
           "docker"
           "audio"
+          "jackaudio"
           "video"
           "vboxusers"
         ];
