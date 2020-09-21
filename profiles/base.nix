@@ -10,8 +10,6 @@
 
     ../services.nix
 
-    ../environment.nix
-
     ../modules/fonts.nix
     ../desktop.nix
     ../modules/i3.nix

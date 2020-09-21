@@ -15,6 +15,7 @@
     ./extras/wacom.nix
 
     ./users.nix
+    ./environment.nix
 
     <home-manager/nixos>
   ];
