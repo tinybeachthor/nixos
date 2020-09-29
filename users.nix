@@ -23,10 +23,19 @@
   };
   home-manager.users = {
     martin = { pkgs, ... }: {
-      imports = [
-      ];
+      imports = [ ];
 
-      home.packages = with pkgs; [ ];
+      home.packages = with pkgs; [
+        pdftk
+        libreoffice
+        xournal
+
+        gimp
+        inkscape
+
+        shotwell
+        rawtherapee
+      ];
     };
   };
   home-manager.useGlobalPkgs = true;
