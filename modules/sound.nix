@@ -10,6 +10,9 @@
     package = pkgs.pulseaudio.override {
       jackaudioSupport = true;
     };
+
+    useSystemd = true;
+    systemd = pkgs.systemd;
   };
   systemd.user.services.pulseaudio = {
     enable = true;
