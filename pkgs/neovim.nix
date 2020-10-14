@@ -21,7 +21,6 @@ neovim.override {
     packages.myVimPackages = with pkgs.vimPlugins; {
       start = [
        # core
-       auto-pairs
        vim-commentary
        vim-unimpaired
        vim-surround
@@ -31,6 +30,7 @@ neovim.override {
        vim-signature
        vim-sneak
        vim-abolish
+       vim-speeddating
 
        coc-nvim
 
@@ -59,8 +59,10 @@ neovim.override {
        vim-go
        Jenkinsfile-vim-syntax
        vim-mdx-js
+       vim-terraform
      ];
      opt = [
+       coc-pairs
        coc-lists
        coc-highlight
        coc-snippets

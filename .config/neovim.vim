@@ -286,10 +286,6 @@ inoremap <silent><expr> <TAB>
 " Use <c-space> for trigger completion.
 inoremap <silent><expr> <c-space> coc#refresh()
 
-" Use <cr> for confirm completion.
-" Coc only does snippet and additional edit on confirm.
-inoremap <expr> <cr> pumvisible() ? "\<C-y>" : "\<C-g>u\<CR>"
-
 " Use <C-x><C-o> to complete 'word', 'emoji' and 'include' sources
 imap <silent> <C-x><C-o> <Plug>(coc-complete-custom)
 
