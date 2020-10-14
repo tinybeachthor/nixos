@@ -20,6 +20,8 @@
     <home-manager/nixos>
   ];
 
+  nix.trustedUsers = [ "root" "martin" ];
+
   virtualisation.docker = {
     enable = true;
     enableOnBoot = false;
