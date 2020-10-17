@@ -34,16 +34,19 @@ in
 
   config.services = {
     tlp.enable = true;
-    tlp.extraConfig = ''
-      TLP_DEFAULT_MODE=BAT
-      SATA_LINKPWR_ON_BAT="min_power med_power_with_dipm"
-      CPU_HWP_ON_BAT=power
-      CPU_SCALING_GOVERNOR_ON_AC=performance
-      CPU_SCALING_GOVERNOR_ON_BAT=powersave
-      CPU_MIN_PERF_ON_AC=0
-      CPU_MAX_PERF_ON_AC=100
-      CPU_MIN_PERF_ON_BAT=0
-      CPU_MAX_PERF_ON_BAT=35
-    '';
+    tlp.settings = {
+      TLP_DEFAULT_MODE = "BAT";
+
+      SATA_LINKPWR_ON_BAT = "min_power med_power_with_dipm";
+      CPU_HWP_ON_BAT = "power";
+
+      CPU_SCALING_GOVERNOR_ON_AC = "performance";
+      CPU_SCALING_GOVERNOR_ON_BAT = "powersave";
+
+      CPU_MIN_PERF_ON_AC = 0;
+      CPU_MAX_PERF_ON_AC = 100;
+      CPU_MIN_PERF_ON_BAT = 0;
+      CPU_MAX_PERF_ON_BAT = 35;
+    };
   };
 }
