@@ -27,18 +27,32 @@
       imports = [ ];
 
       home.packages = with pkgs; [
+        dolphin
+        breeze-icons
+        xfce.thunar
+
+        firefox
+        chromium
+
         pdftk
         libreoffice
         xournal
+        vlc
+        xfce.ristretto
+
+        thunderbird
+        slack
+
+        spotify
 
         gimp
         inkscape
 
         shotwell
         rawtherapee
+        shotcut
       ];
     };
   };
   home-manager.useGlobalPkgs = true;
-  # home-manager.useUserPackages = true;
 }

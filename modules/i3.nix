@@ -26,7 +26,7 @@
 
         conky    # cpu stats
         xss-lock # x sesssion locker
-        ];
+      ];
       package = pkgs.i3-gaps;
     };
     displayManager.defaultSession = "none+i3";

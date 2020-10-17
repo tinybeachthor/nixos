@@ -40,19 +40,4 @@
   i18n.defaultLocale = lib.mkDefault "en_US.UTF-8";
   console.font       = lib.mkDefault "Lat2-Terminus16";
   console.keyMap     = lib.mkDefault "us";
-
-  # System packages
-  environment.systemPackages = with pkgs; [
-    # Desktop packages
-    dolphin
-    breeze-icons
-    firefox
-    chromium
-    imagemagick
-    vlc
-    spotify
-    slack
-    thunderbird
-    gnome3.gnome-calculator
-  ];
 }
