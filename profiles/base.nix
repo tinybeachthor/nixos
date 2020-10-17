@@ -55,7 +55,4 @@
     thunderbird
     gnome3.gnome-calculator
   ];
-
-  # Include nixos manual
-  services.nixosManual.showManual = true;
 }

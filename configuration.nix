@@ -16,8 +16,6 @@
 
     ./users.nix
     ./environment.nix
-
-    <home-manager/nixos>
   ];
 
   nix.trustedUsers = [ "root" "martin" ];
