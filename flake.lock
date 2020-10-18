@@ -19,6 +19,27 @@
         "type": "github"
       }
     },
+    "my-nur": {
+      "inputs": {
+        "nixpkgs": [
+          "nixpkgs"
+        ]
+      },
+      "locked": {
+        "lastModified": 1603062328,
+        "narHash": "sha256-n7iAcwUY96b46LldpofWP83R6y70EOH8QxFXSRBHPBY=",
+        "owner": "tinybeachthor",
+        "repo": "nur-packages",
+        "rev": "f57add6251e7d1f84163ca92f96472427bd9e42e",
+        "type": "github"
+      },
+      "original": {
+        "owner": "tinybeachthor",
+        "ref": "master",
+        "repo": "nur-packages",
+        "type": "github"
+      }
+    },
     "nixpkgs": {
       "locked": {
         "lastModified": 1602950180,
@@ -52,6 +73,7 @@
     "root": {
       "inputs": {
         "home-manager": "home-manager",
+        "my-nur": "my-nur",
         "nixpkgs": "nixpkgs_2"
       }
     }
