@@ -1,4 +1,4 @@
-{ pkgs, neovim ? pkgs.neovim, config }:
+{ pkgs, nur, neovim ? pkgs.neovim, config }:
 
 let
   python3Packages = packages: with packages; [
@@ -60,6 +60,7 @@ neovim.override {
        Jenkinsfile-vim-syntax
        vim-mdx-js
        vim-terraform
+       nur.vimPlugins.vim-racket
      ];
      opt = [
        coc-pairs
