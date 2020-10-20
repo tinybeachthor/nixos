@@ -38,7 +38,6 @@ in
       TLP_DEFAULT_MODE = "BAT";
 
       SATA_LINKPWR_ON_BAT = "min_power med_power_with_dipm";
-      CPU_HWP_ON_BAT = "power";
 
       CPU_SCALING_GOVERNOR_ON_AC = "performance";
       CPU_SCALING_GOVERNOR_ON_BAT = "powersave";
@@ -46,7 +45,13 @@ in
       CPU_MIN_PERF_ON_AC = 0;
       CPU_MAX_PERF_ON_AC = 100;
       CPU_MIN_PERF_ON_BAT = 0;
-      CPU_MAX_PERF_ON_BAT = 35;
+      CPU_MAX_PERF_ON_BAT = 25;
+      CPU_BOOST_ON_AC = 1;
+      CPU_BOOST_ON_BAT = 0;
+      CPU_ENERGY_PERF_POLICY_ON_BAT = "power";
+      CPU_HWP_ON_BAT = "power";
+
+      PCIE_ASPM_ON_BAT = "powersupersave";
     };
   };
 }
