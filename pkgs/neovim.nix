@@ -1,4 +1,4 @@
-{ pkgs, nur, neovim ? pkgs.neovim, config }:
+{ pkgs, tinybeachthor ? pkgs, neovim ? pkgs.neovim, config }:
 
 let
   python3Packages = packages: with packages; [
@@ -48,7 +48,7 @@ neovim.override {
        # look
        vim-airline
        NeoSolarized
-       distilled-vim
+       tinybeachthor.vimPlugins.distilled-vim
 
        # languages
        vim-nix
@@ -58,9 +58,9 @@ neovim.override {
        haskell-vim
        vim-go
        Jenkinsfile-vim-syntax
-       vim-mdx-js
+       tinybeachthor.vimPlugins.vim-mdx-js
        vim-terraform
-       nur.vimPlugins.vim-racket
+       tinybeachthor.vimPlugins.vim-racket
      ];
      opt = [
        coc-pairs
