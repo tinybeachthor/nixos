@@ -34,7 +34,7 @@ neovim.override {
 
        coc-nvim
 
-       vimwiki
+       # vimwiki
 
        # files
        fzf-vim
