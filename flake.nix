@@ -10,18 +10,49 @@
       system = "x86_64-linux";
       modules = [
         ({ nixpkgs = {
-            overlays = [
-              tinybeachthor.overlay
-            ];
+            overlays = [ tinybeachthor.overlay ];
             config = {
               allowUnfree = true;
               allowBroken = false;
               packageOverrides = pkgs: import ./pkgs/overrides.nix { inherit pkgs; };
+            }; }; })
+        ./hardware-configuration.nix
+        ./cachix.nix
+
+        ./profiles/base.nix
+
+        ./extras/intel.nix
+        ./extras/thinkpad.nix
+        ./extras/wacom.nix
+
+        home-manager.nixosModules.home-manager
+        ./users.nix
+        ./environment.nix
+
+        ({
+          virtualisation.docker = {
+            enable = true;
+            enableOnBoot = false;
+          };
+
+          virtualisation.virtualbox = {
+            host = {
+              enable = true;
+              # enableExtensionPack = true;
             };
           };
+
+          environment.shellAliases = import ./aliases.nix;
+
+          # Set your time zone.
+          time.timeZone = "Europe/Amsterdam";
+
+          # This value determines the NixOS release with which your system is to be
+          # compatible, in order to avoid breaking some software such as database
+          # servers. You should change this only after NixOS release notes say you
+          # should.
+          system.stateVersion = "19.09"; # Did you read the comment?
         })
-        ./configuration.nix
-        home-manager.nixosModules.home-manager
       ];
     };
   };
