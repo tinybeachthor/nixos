@@ -35,13 +35,6 @@
             enableOnBoot = false;
           };
 
-          virtualisation.virtualbox = {
-            host = {
-              enable = true;
-              # enableExtensionPack = true;
-            };
-          };
-
           environment.shellAliases = import ./aliases.nix;
 
           # Set your time zone.
