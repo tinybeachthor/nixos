@@ -48,6 +48,7 @@
 
         gimp
         inkscape
+        blender
 
         shotwell
         rawtherapee
