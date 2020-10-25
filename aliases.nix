@@ -1,9 +1,9 @@
 {
 # general
-  l="exa --all --git-ignore";
+  l="exa --all --long -I .git --git-ignore";
   ls="exa --git-ignore";
   ll="exa --all --long";
-  lll="exa --all --long --tree --level=2";
+  lll="exa --all --long --tree -I .git --level=2";
 
   dr="direnv reload";
 
