@@ -24,8 +24,13 @@
     };
   };
   home-manager.users = {
-    martin = { pkgs, ... }: {
+    martin = { pkgs, ... }:
+    {
       imports = [ ];
+
+      programs = {
+        neovim = import ./users/martin/neovim.nix { inherit pkgs; };
+      };
 
       home.packages = with pkgs; [
         dolphin

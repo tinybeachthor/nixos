@@ -1,24 +1,23 @@
-{ pkgs, tinybeachthor ? pkgs, neovim ? pkgs.neovim, config }:
+{ pkgs, ... }:
 
-let
-  python3Packages = packages: with packages; [
-    jedi
-  ];
-in
+{
+  enable = true;
 
-neovim.override {
-  vimAlias = true;
   viAlias = true;
+  vimAlias = true;
+  vimdiffAlias = true;
 
+  withRuby = true;
   withPython = true;
   withPython3 = true;
   withNodeJs = true;
 
-  extraPython3Packages = python3Packages;
+  extraPythonPackages = p: with p; [ ];
+  extraPython3Packages = p: with p; [ jedi ];
 
   configure = {
-    customRC = config;
-    packages.myVimPackages = with pkgs.vimPlugins; {
+    customRC = builtins.readFile ./neovim.vim;
+    packages.myVimPackages = with pkgs.vimPlugins; with pkgs.tinybeachthor.vimPlugins; {
       start = [
        # core
        vim-commentary
@@ -48,7 +47,7 @@ neovim.override {
        # look
        vim-airline
        NeoSolarized
-       tinybeachthor.vimPlugins.distilled-vim
+       distilled-vim
 
        # languages
        vim-nix
@@ -58,9 +57,9 @@ neovim.override {
        haskell-vim
        vim-go
        Jenkinsfile-vim-syntax
-       tinybeachthor.vimPlugins.vim-mdx-js
+       vim-mdx-js
        vim-terraform
-       tinybeachthor.vimPlugins.vim-racket
+       vim-racket
      ];
      opt = [
        coc-pairs

@@ -12,9 +12,7 @@
         (alacritty {
           config = builtins.readFile ./.config/alacritty.yml;
         })
-        (neovim {
-          config = builtins.readFile ./.config/neovim.vim;
-        })
+        neovim
 
         cachix
 
