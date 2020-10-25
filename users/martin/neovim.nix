@@ -48,6 +48,8 @@
        vim-airline
        NeoSolarized
        distilled-vim
+       vim-simplicity
+       toast-vim
 
        # languages
        vim-nix
