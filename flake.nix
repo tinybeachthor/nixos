@@ -12,13 +12,17 @@
     nixosConfigurations.ALBATROSS = nixpkgs.lib.nixosSystem rec {
       system = "x86_64-linux";
       modules = [
-        ({ nixpkgs = {
+        ({
+          nixpkgs = {
             overlays = [ tinybeachthor.overlay ];
             config = {
               allowUnfree = true;
               allowBroken = false;
               packageOverrides = pkgs: import ./pkgs/overrides.nix { inherit pkgs; };
-            }; }; })
+            }; };
+
+          nix.registry.nixpkgs.flake = nixpkgs;
+        })
         ./hardware-configuration.nix
         ./cachix.nix
 
