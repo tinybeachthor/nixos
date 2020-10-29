@@ -5,8 +5,8 @@
     enable = true;
     enableCtrlAltBackspace = true;
 
-    layout = config.console.keyMap;         # Use same keyMap as console
-    xkbOptions = "eurosign:e, ctrl:nocaps"; # CapsLock is Ctrl
+    layout = config.console.keyMap;          # Use same keyMap as console
+    xkbOptions = "eurosign:e, ctrl:nocaps";  # CapsLock is Ctrl
 
     # Enable touchpad support.
     libinput = {
@@ -24,18 +24,19 @@
         i3status-rust
         i3lock-color
 
-        conky    # cpu stats
-        xss-lock # x sesssion locker
+        xss-lock        # x sesssion locker
+        xclip           # screenshots
+        conky           # i3status-rust cpu stats
+        font-awesome_4  # i3status-rust icon font
       ];
       package = pkgs.i3-gaps;
     };
     displayManager.defaultSession = "none+i3";
   };
 
-  services.upower.enable = true;  # needed by i3status-rust for battery stats
+  services.upower.enable = true;  # i3status-rust battery stats
 
   environment.systemPackages = with pkgs; [
-      xclip
-      xorg.xhost
+    xorg.xhost  # manage access to x sesssion (e.g. allow access from docker)
   ];
 }
