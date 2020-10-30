@@ -33,23 +33,17 @@
       };
 
       home.packages = with pkgs; [
-        dolphin
-        breeze-icons
-        xfce.thunar
-
         firefox
-        chromium
+        xfce.thunar
+        xfce.ristretto
+        spotify
 
-        pdftk
         libreoffice
+        pdftk
         xournal
         vlc
-        xfce.ristretto
 
-        thunderbird
         slack
-
-        spotify
 
         gimp
         inkscape
