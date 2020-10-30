@@ -10,6 +10,7 @@
     let
       core-packages = [
         neovim
+        git
 
         cachix
 
@@ -60,12 +61,6 @@
         keybase-gui
       ];
       development-packages = [
-        gitFull
-        gitAndTools.hub
-        gitAndTools.git-standup
-        gitAndTools.git-absorb
-        gitAndTools.git-gone
-
         ispell
         aspellDicts.en
 

@@ -32,6 +32,7 @@
 
       programs = {
         neovim = import ./martin/neovim.nix { inherit pkgs; };
+        git = import ./martin/git.nix { inherit pkgs; };
         gh = {
           enable = true;
           gitProtocol = "ssh";
@@ -40,6 +41,11 @@
       };
 
       home.packages = with pkgs; [
+        gitAndTools.hub
+        gitAndTools.git-absorb
+        gitAndTools.git-gone
+        gitAndTools.git-standup
+
         firefox
         xfce.thunar
         xfce.ristretto
