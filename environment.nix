@@ -9,9 +9,6 @@
     systemPackages = with pkgs;
     let
       core-packages = [
-        (alacritty {
-          config = builtins.readFile ./.config/alacritty.yml;
-        })
         neovim
 
         cachix

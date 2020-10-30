@@ -36,6 +36,7 @@
           enable = true;
           gitProtocol = "ssh";
         };
+        alacritty = import ./users/martin/alacritty.nix { inherit pkgs; };
       };
 
       home.packages = with pkgs; [

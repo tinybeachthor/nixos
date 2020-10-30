@@ -15,12 +15,8 @@
         ({
           nixpkgs = {
             overlays = [ tinybeachthor.overlay ];
-            config = {
-              allowUnfree = true;
-              allowBroken = false;
-              packageOverrides = pkgs: import ./pkgs/overrides.nix { inherit pkgs; };
-            }; };
-
+            config = { allowUnfree = true; allowBroken = false; };
+          };
           nix.registry.nixpkgs.flake = nixpkgs;
         })
         ./hardware-configuration.nix
