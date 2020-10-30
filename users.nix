@@ -28,6 +28,8 @@
     {
       imports = [ ];
 
+      xresources.properties = import ./users/martin/xresources.nix { };
+
       programs = {
         neovim = import ./users/martin/neovim.nix { inherit pkgs; };
       };
