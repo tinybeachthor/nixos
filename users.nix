@@ -28,10 +28,14 @@
     {
       imports = [ ];
 
-      xresources.properties = import ./users/martin/xresources.nix { };
+      xresources.properties = import ./users/martin/xresources.nix;
 
       programs = {
         neovim = import ./users/martin/neovim.nix { inherit pkgs; };
+        gh = {
+          enable = true;
+          gitProtocol = "ssh";
+        };
       };
 
       home.packages = with pkgs; [

@@ -53,7 +53,6 @@
         gitAndTools.git-annex
         gitAndTools.gitRemoteGcrypt
         rsync
-        bup
       ];
       crypt-packages = [
         cryptsetup
@@ -65,7 +64,6 @@
       ];
       development-packages = [
         gitFull
-        gitAndTools.git-hub
         gitAndTools.hub
         gitAndTools.git-standup
         gitAndTools.git-absorb
