@@ -81,12 +81,14 @@
       ++ crypt-packages
       ++ development-packages;
 
-    variables.TERMINAL = "xterm";
-    variables.TERM = "xterm";
+    variables = {
+      TERMINAL = "xterm";
+      TERM = "xterm";
 
-    variables.EDITOR = "nvim";
-    variables.VISUAL = "nvim";
+      EDITOR = "nvim";
+      VISUAL = "nvim";
 
-    variables.QT_QPA_PLATFORMTHEME = "qt5ct";
+      QT_QPA_PLATFORMTHEME = "qt5ct";
+    };
   };
 }
