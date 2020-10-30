@@ -29,7 +29,7 @@
         ./extras/wacom.nix
 
         home-manager.nixosModules.home-manager
-        ./users.nix
+        ./users
         ./environment.nix
 
         ({
