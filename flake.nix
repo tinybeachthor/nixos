@@ -38,8 +38,6 @@
             enableOnBoot = false;
           };
 
-          environment.shellAliases = import ./aliases.nix;
-
           # Set your time zone.
           time.timeZone = "Europe/Amsterdam";
 

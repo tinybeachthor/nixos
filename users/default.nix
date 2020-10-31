@@ -19,6 +19,8 @@
       home = "/home/martin";
       createHome = true;
 
+      shell = pkgs.zsh;
+
       isNormalUser = true;
       uid = 1000;
     };
@@ -31,6 +33,7 @@
       xresources.properties = import ./martin/xresources.nix;
 
       programs = {
+        zsh = import ./martin/zsh.nix { inherit pkgs; };
         neovim = import ./martin/neovim.nix { inherit pkgs; };
         git = import ./martin/git.nix { inherit pkgs; };
         gh = {
