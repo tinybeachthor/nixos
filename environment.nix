@@ -64,7 +64,6 @@
         ispell
         aspellDicts.en
 
-        direnv
         haskellPackages.niv
         nixfmt
 

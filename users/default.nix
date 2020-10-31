@@ -34,6 +34,10 @@
 
       programs = {
         zsh = import ./martin/zsh.nix { inherit pkgs; };
+        direnv = {
+          enable = true;
+          enableZshIntegration = true;
+        };
         neovim = import ./martin/neovim.nix { inherit pkgs; };
         git = import ./martin/git.nix { inherit pkgs; };
         gh = {
