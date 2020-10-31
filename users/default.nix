@@ -28,7 +28,9 @@
   home-manager.users = {
     martin = { pkgs, ... }:
     {
-      imports = [ ];
+      imports = [
+        ./powerline-go-zsh.nix
+      ];
 
       xresources.properties = import ./martin/xresources.nix;
 
@@ -42,6 +44,19 @@
           enable = true;
           enableZshIntegration = true;
           defaultCommand = "fd --type f --hidden --follow --exclude .git";
+        };
+        powerline-go-zsh = {
+          enable = true;
+          settings = {
+            numeric-exit-codes = true;
+            shell = "zsh";
+            mode = "flat";
+            cwd-mode = "plain";
+          };
+          modules = [
+            "cwd" "git" "jobs" "exit" "nix-shell"
+            "venv" "node" "terraform-workspace"
+          ];
         };
         neovim = import ./martin/neovim.nix { inherit pkgs; };
         git = import ./martin/git.nix { inherit pkgs; };
