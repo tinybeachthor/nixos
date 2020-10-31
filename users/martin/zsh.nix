@@ -21,12 +21,6 @@
   initExtra = ''
     setopt NOTIFY
 
-    setopt EXTENDED_GLOB
-    setopt NOMATCH
-
-    # Allow case insensitive matching if no sensitive matches exist
-    zstyle ':completion:*' matcher-list \'\' 'm:{a-zA-Z}={A-Za-z}'
-
     # <C-W> delete word or path component
     my-backward-delete-word() {
       local WORDCHARS=$\{WORDCHARS/\//}
