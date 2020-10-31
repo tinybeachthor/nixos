@@ -27,10 +27,8 @@
         lsof
 
         which
-        fd
         file
         findutils
-        fzf
         ripgrep
         vifm
         jq

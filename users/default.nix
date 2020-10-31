@@ -38,6 +38,11 @@
           enable = true;
           enableZshIntegration = true;
         };
+        fzf = {
+          enable = true;
+          enableZshIntegration = true;
+          defaultCommand = "fd --type f --hidden --follow --exclude .git";
+        };
         neovim = import ./martin/neovim.nix { inherit pkgs; };
         git = import ./martin/git.nix { inherit pkgs; };
         gh = {
@@ -48,6 +53,8 @@
       };
 
       home.packages = with pkgs; [
+        fd  # fzf source
+
         gitAndTools.hub
         gitAndTools.git-absorb
         gitAndTools.git-gone
