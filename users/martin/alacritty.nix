@@ -31,7 +31,7 @@ let
         family = "Hack";
         style = "Bold";
       };
-      size = 11;
+      size = 12;
       offset = {
         x = 0;
         y = 0;
@@ -45,7 +45,7 @@ let
     colors = {
       primary = {
         background = "0x181818";
-        foreground = "0xdfdfdf";
+        foreground = "0xf4f4f4";
       };
       normal = {
         black = "0x263640";
