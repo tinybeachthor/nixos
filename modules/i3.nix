@@ -21,12 +21,13 @@
       enable = true;
       extraPackages = with pkgs; [
         rofi
-        i3status-rust
+        tinybeachthor.i3status-rust
         i3lock-color
 
         xss-lock        # x sesssion locker
         xclip           # screenshots
         conky           # i3status-rust cpu stats
+        iw              # i3status-rust wireless strength
         font-awesome_4  # i3status-rust icon font
       ];
       package = pkgs.i3-gaps;
