@@ -27,6 +27,7 @@
         xss-lock        # x sesssion locker
         xclip           # x clipboards
         maim            # screenshots
+        ffmpeg          # screen-recording
         conky           # i3status-rust cpu stats
         iw              # i3status-rust wireless strength
         font-awesome_4  # i3status-rust icon font
