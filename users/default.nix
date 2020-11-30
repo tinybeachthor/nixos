@@ -76,6 +76,7 @@
         gitAndTools.git-standup
 
         firefox
+        chromium
         xfce.thunar
         xfce.ristretto
         spotify

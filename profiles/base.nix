@@ -25,6 +25,12 @@
     "ipv6.disable=0"
   ];
 
+  # Security
+  security.allowUserNamespaces = true;
+  boot.kernel.sysctl."kernel.unprivileged_userns_clone" = 1;
+
+  security.chromiumSuidSandbox.enable = false;
+
   # Internationalisation
   i18n.defaultLocale = lib.mkDefault "en_US.UTF-8";
   console.font       = lib.mkDefault "Lat2-Terminus16";
