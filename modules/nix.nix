@@ -20,7 +20,4 @@
 
   # AutoOptimiseStore
   nix.autoOptimiseStore = true;
-
-  # Better nix-shell management
-  services.lorri.enable = true;
 }
