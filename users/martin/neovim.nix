@@ -17,7 +17,9 @@
 
   configure = {
     customRC = builtins.readFile ./neovim.vim;
-    packages.myVimPackages = with pkgs.vimPlugins; with pkgs.tinybeachthor.vimPlugins; {
+    packages.myVimPackages =
+      with pkgs.vimPlugins;
+      with pkgs.tinybeachthor.vimPlugins; {
       start = [
        # core
        vim-commentary
@@ -30,10 +32,9 @@
        vim-sneak
        vim-abolish
        vim-speeddating
+       tabular
 
        coc-nvim
-
-       # vimwiki
 
        # files
        fzf-vim
