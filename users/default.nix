@@ -80,6 +80,7 @@
         xfce.thunar
         xfce.ristretto
         spotify
+        neomutt
 
         libreoffice
         pdftk
