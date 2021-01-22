@@ -35,6 +35,7 @@
       xresources.properties = import ./martin/xresources.nix;
 
       programs = {
+        i3status-rust = import ./martin/i3status-rust.nix { };
         zsh = import ./martin/zsh.nix { inherit pkgs; };
         direnv = {
           enable = true;
