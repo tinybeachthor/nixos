@@ -65,10 +65,24 @@
           gitProtocol = "ssh";
         };
         alacritty = import ./martin/alacritty.nix { inherit pkgs; };
+
+        neomutt = { enable = true; vimKeys = true; };
+        mbsync = { enable = true; };
+        msmtp = { enable = true; };
+        notmuch = {
+          enable = true;
+          hooks = {
+            preNew = "mbsync --all";
+          };
+        };
       };
+
+      accounts.email.accounts = import ./martin/email-accounts.nix { inherit pkgs; };
 
       home.packages = with pkgs; [
         fd  # fzf source
+
+        pass
 
         gitAndTools.hub
         gitAndTools.git-absorb
@@ -80,7 +94,6 @@
         xfce.thunar
         xfce.ristretto
         spotify
-        neomutt
 
         libreoffice
         pdftk
