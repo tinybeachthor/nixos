@@ -35,6 +35,8 @@
       xresources.properties = import ./martin/xresources.nix;
 
       programs = {
+        command-not-found.enable = true;
+
         zsh = import ./martin/zsh.nix { inherit pkgs; };
         direnv = {
           enable = true;
