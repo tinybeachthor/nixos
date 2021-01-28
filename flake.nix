@@ -27,7 +27,7 @@
         ./hardware-configuration.nix
         ./cachix.nix
 
-        ./profiles/base.nix
+        ./profiles/desktop.nix
 
         ./extras/intel.nix
         ./extras/thinkpad.nix

@@ -3,16 +3,9 @@
 {
   imports = [
     ../modules/systemd-boot.nix
-    ../modules/powersave.nix
-    ../modules/hibernate.nix
     ../modules/nix.nix
     ../modules/networking.nix
     ../modules/physical-security.nix
-
-    ../modules/fonts.nix
-    ../desktop.nix
-    ../modules/i3.nix
-    ../modules/sound.nix
   ];
 
   # Kernel
