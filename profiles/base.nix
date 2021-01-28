@@ -6,6 +6,7 @@
     ../modules/powersave.nix
     ../modules/hibernate.nix
     ../modules/nix.nix
+    ../modules/networking.nix
 
     ../services.nix
 

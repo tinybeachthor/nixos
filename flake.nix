@@ -21,6 +21,8 @@
             config = { allowUnfree = true; allowBroken = false; };
           };
           nix.registry.nixpkgs.flake = nixpkgs;
+
+          networking.hostName = "ALBATROSS";
         })
         ./hardware-configuration.nix
         ./cachix.nix
