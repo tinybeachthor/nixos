@@ -7,8 +7,7 @@
     ../modules/hibernate.nix
     ../modules/nix.nix
     ../modules/networking.nix
-
-    ../services.nix
+    ../modules/physical-security.nix
 
     ../modules/fonts.nix
     ../desktop.nix
@@ -31,6 +30,14 @@
   boot.kernel.sysctl."kernel.unprivileged_userns_clone" = 1;
 
   security.chromiumSuidSandbox.enable = false;
+
+  # Services
+  location.provider = "geoclue2";
+
+  services = {
+    # SSD block reclamation service
+    fstrim.enable = true;
+  };
 
   # Internationalisation
   i18n.defaultLocale = lib.mkDefault "en_US.UTF-8";
