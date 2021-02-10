@@ -63,6 +63,7 @@
        vim-mdx-js
        vim-terraform
        vim-racket
+       pkgs.parinfer-rust
      ];
      opt = [
        coc-pairs
