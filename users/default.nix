@@ -35,6 +35,8 @@
       xresources.properties = import ./martin/xresources.nix;
 
       programs = {
+        emacs = import ./martin/emacs.nix { inherit pkgs; };
+
         command-not-found.enable = true;
 
         zsh = import ./martin/zsh.nix { inherit pkgs; };
