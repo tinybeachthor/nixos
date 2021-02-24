@@ -22,6 +22,9 @@
           };
           nix.registry.nixpkgs.flake = nixpkgs;
 
+          # https://github.com/NixOS/nix/issues/3821
+          systemd.services.nix-daemon.serviceConfig.LimitSTACKSoft = "infinity";
+
           networking.hostName = "ALBATROSS";
         })
         ./hardware-configuration.nix
