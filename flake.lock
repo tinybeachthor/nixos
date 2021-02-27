@@ -1,5 +1,20 @@
 {
   "nodes": {
+    "flake-utils": {
+      "locked": {
+        "lastModified": 1610051610,
+        "narHash": "sha256-U9rPz/usA1/Aohhk7Cmc2gBrEEKRzcW4nwPWMPwja4Y=",
+        "owner": "numtide",
+        "repo": "flake-utils",
+        "rev": "3982c9903e93927c2164caa727cd3f6a0e6d14cc",
+        "type": "github"
+      },
+      "original": {
+        "owner": "numtide",
+        "repo": "flake-utils",
+        "type": "github"
+      }
+    },
     "home-manager": {
       "inputs": {
         "nixpkgs": [
@@ -21,6 +36,31 @@
         "type": "github"
       }
     },
+    "mach-nix": {
+      "inputs": {
+        "flake-utils": [
+          "flake-utils"
+        ],
+        "nixpkgs": [
+          "nixpkgs"
+        ],
+        "pypi-deps-db": "pypi-deps-db"
+      },
+      "locked": {
+        "lastModified": 1613638576,
+        "narHash": "sha256-ry1PHKjTUDm3lxjtyyKLYO+O7AgofWuSINgQBO01xng=",
+        "owner": "DavHau",
+        "repo": "mach-nix",
+        "rev": "afa94cb61ce68fad8688ce4f32fc7095962aa191",
+        "type": "github"
+      },
+      "original": {
+        "owner": "DavHau",
+        "ref": "master",
+        "repo": "mach-nix",
+        "type": "github"
+      }
+    },
     "nixpkgs": {
       "locked": {
         "lastModified": 1614267137,
@@ -37,10 +77,56 @@
         "type": "github"
       }
     },
+    "pypi-deps-db": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1606280641,
+        "narHash": "sha256-sVYIBMtvZgxQQkbxZg/45xw4e7vVh+5SU1kkvUvtnrc=",
+        "owner": "DavHau",
+        "repo": "pypi-deps-db",
+        "rev": "63bb8887c8de8e056f5ed77ac6a35c771c0c5d57",
+        "type": "github"
+      },
+      "original": {
+        "owner": "DavHau",
+        "repo": "pypi-deps-db",
+        "type": "github"
+      }
+    },
+    "remarkable": {
+      "inputs": {
+        "flake-utils": [
+          "flake-utils"
+        ],
+        "mach-nix": "mach-nix",
+        "nixpkgs": [
+          "nixpkgs"
+        ],
+        "tinybeachthor": [
+          "tinybeachthor"
+        ]
+      },
+      "locked": {
+        "lastModified": 1614210944,
+        "narHash": "sha256-k4AtyJOjtKLNN51RrnuTQxylHAb/sp6aJ84y8B11N/s=",
+        "owner": "tinybeachthor",
+        "repo": "remarkable",
+        "rev": "0520be27c62806080f29e45d1e0ffe350bdc9f08",
+        "type": "github"
+      },
+      "original": {
+        "owner": "tinybeachthor",
+        "ref": "master",
+        "repo": "remarkable",
+        "type": "github"
+      }
+    },
     "root": {
       "inputs": {
+        "flake-utils": "flake-utils",
         "home-manager": "home-manager",
         "nixpkgs": "nixpkgs",
+        "remarkable": "remarkable",
         "tinybeachthor": "tinybeachthor"
       }
     },

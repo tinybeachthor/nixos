@@ -1,5 +1,6 @@
 {
   inputs = {
+    flake-utils.url = github:numtide/flake-utils;
     nixpkgs.url = github:NixOS/nixpkgs/nixos-20.09;
     home-manager = {
       url = github:rycee/home-manager/release-20.09;
@@ -12,12 +13,13 @@
     remarkable = {
       url = github:tinybeachthor/remarkable/master;
       inputs = {
+        flake-utils.follows = "flake-utils";
         nixpkgs.follows = "nixpkgs";
         tinybeachthor.follows = "tinybeachthor";
       };
     };
   };
-  outputs = { self, nixpkgs, home-manager, tinybeachthor, remarkable }:
+  outputs = { self, flake-utils, nixpkgs, home-manager, tinybeachthor, remarkable }:
   {
     nixosConfigurations.ALBATROSS = nixpkgs.lib.nixosSystem rec {
       system = "x86_64-linux";
