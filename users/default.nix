@@ -104,6 +104,9 @@
         xournal
         vlc
 
+        rmapi
+        paper2remarkable
+
         slack
 
         gimp

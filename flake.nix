@@ -9,15 +9,25 @@
       url = github:tinybeachthor/nur-packages/master;
       inputs.nixpkgs.follows = "nixpkgs";
     };
+    remarkable = {
+      url = github:tinybeachthor/remarkable/master;
+      inputs = {
+        nixpkgs.follows = "nixpkgs";
+        tinybeachthor.follows = "tinybeachthor";
+      };
+    };
   };
-  outputs = { self, nixpkgs, home-manager, tinybeachthor }:
+  outputs = { self, nixpkgs, home-manager, tinybeachthor, remarkable }:
   {
     nixosConfigurations.ALBATROSS = nixpkgs.lib.nixosSystem rec {
       system = "x86_64-linux";
       modules = [
         ({
           nixpkgs = {
-            overlays = [ tinybeachthor.overlay ];
+            overlays = [
+              tinybeachthor.overlay
+              remarkable.overlay.${system}
+            ];
             config = { allowUnfree = true; allowBroken = false; };
           };
           nix.registry.nixpkgs.flake = nixpkgs;
